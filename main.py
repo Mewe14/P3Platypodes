@@ -10,7 +10,15 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 db = SQLAlchemy(app)
 
+
+#@app.route('/')
+#@app.route('/landing', methods=["GET", "POST"])
+#def landing_page():
+   # users = None
+
 @app.route('/')
-@app.route('/landing', methods=["GET", "POST"])
-def landing_page():
-    users = None
+def home():
+    return render_template('landing.html')
+
+if __name__ == "__main__":
+    app.run(debug=True, host="127.0.0.1", port="5001")
