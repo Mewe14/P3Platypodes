@@ -2,6 +2,7 @@
 
 LinkDN is an aspiring social media site exclusive to Del Norte's students. Students can share their "stats," what classes they are taking, and their accomplishments outside of school. Ideally, LinkDN will be able to be used as a platform for students to create study/support groups with one another. 
 
+[Project Plan](https://docs.google.com/document/d/1FGxx_jWIMwzBsvnnm7vjAKN-VX4sEd5dISR_Y26ovc8/edit)
 ## Key Features
 
 #### Signup/Login page with Users database
