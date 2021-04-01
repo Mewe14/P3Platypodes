@@ -6,6 +6,7 @@ from class.app import class_bp
 from club.app import club_bp
 from sports.app import sports_bp
 from teacher.app import teacher_bp
+from administration.app import administration_bp
 
 app = Flask(__name__)
 app.register_blueprint(class_bp, url_prefix='/class')
