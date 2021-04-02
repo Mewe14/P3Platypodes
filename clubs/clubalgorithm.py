@@ -11,7 +11,16 @@ class Clubs:
 
 featuredclubs = []
 
-featuredclubs.append(Clubs('The Talon', 'dntalon.com'))
-featuredclubs.append(Clubs('Girls in Computer Science', 'https://www.instagram.com/girlsincs/'))
-featuredclubs.append(Clubs('Tri-M Music Honor Society', 'https://linktr.ee/dnhstrim'))
-featuredclubs.append(Clubs('Black Student Union', 'https://www.instagram.com/dnhsbsu/'))
+thetalon = Clubs('The Talon', 'dntalon.com')
+girlsincs = Clubs('Girls in Computer Science', 'https://www.instagram.com/girlsincs/')
+trim = Clubs('Tri-M Music Honor Society', 'https://linktr.ee/dnhstrim')
+bsu = Clubs('Black Student Union', 'https://www.instagram.com/dnhsbsu/')
+
+featuredclubs.append(thetalon)
+featuredclubs.append(girlsincs)
+featuredclubs.append(trim)
+featuredclubs.append(bsu)
+
+# print(thetalon.media)
+# Eventually I will have a local API of clubs at our school and the featured clubs list will be randomly selected
+# Can class objects be created automatically?

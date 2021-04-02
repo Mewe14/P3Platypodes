@@ -4,9 +4,12 @@ from flask import request
 from clubs import clubalgorithm
 
 clubs_bp = Blueprint('clubs', __name__,
-                     template_folder='templates',
+                     template_folder='clubs/templates',
                      static_folder='static', static_url_path='assets')
 
-@clubs_bp.route('/')
-def index():
+clubs = Flask(__name__)
+
+@clubs_bp.route('/clubs')
+def clubs():
     return render_template('featuredclubs.html', featuredclubs=clubalgorithm.featuredclubs)
+
