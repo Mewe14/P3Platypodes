@@ -29,7 +29,7 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def home():
-    return render_template('landing.html')
+    return render_template('minilabs.html')
 
 @app.route('/signup')
 def signup():
