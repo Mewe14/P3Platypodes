@@ -3,16 +3,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import render_template, request, session, redirect, url_for, g
 import os
 from classes.app import classes_bp
-from club.app import club_bp
-from sports.app import sports_bp
-from teacher.app import teacher_bp
-from administration.app import administration_bp
+from clubs.app import clubs_bp
+#from sports.app import sports_bp
+#from teachers.app import teachers_bp
+#from administration.app import administration_bp
 
 app = Flask(__name__)
 app.register_blueprint(classes_bp, url_prefix='/classes')
-app.register_blueprint(club_bp, url_prefix='/club')
-app.register_blueprint(sports_bp, url_prefix='/sports')
-app.register_blueprint(teacher_bp, url_prefix='/teacher')
+app.register_blueprint(clubs_bp, url_prefix='/club')
+#app.register_blueprint(sports_bp, url_prefix='/sports')
+#app.register_blueprint(teachers_bp, url_prefix='/teacher')
 
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
