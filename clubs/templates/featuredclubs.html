@@ -8,6 +8,13 @@
 <body>
 {% include 'nav.html' %}
 
+<h3>Featured Clubs</h3>
+
+<ul>
+    {% for club in featuredclubs %}
+        <li><a href="{{ club.media }}">{{ club.name }}</a></li></li>
+    {% endfor %}
+</ul>
 
 </body>
 </html>

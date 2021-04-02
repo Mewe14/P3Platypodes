@@ -10,7 +10,7 @@ from clubs.app import clubs_bp
 
 app = Flask(__name__)
 app.register_blueprint(classes_bp, url_prefix='/classes')
-app.register_blueprint(clubs_bp, url_prefix='/club')
+app.register_blueprint(clubs_bp, url_prefix='/clubs')
 #app.register_blueprint(sports_bp, url_prefix='/sports')
 #app.register_blueprint(teachers_bp, url_prefix='/teacher')
 
