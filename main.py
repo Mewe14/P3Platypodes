@@ -39,5 +39,9 @@ def signup():
 def login():
     return render_template('login.html')
 
+@app.route('/')
+def minilabs():
+    return render_template('minilabs.html')
+
 if __name__ == "__main__":
     app.run(debug=True, host="127.0.0.1", port="5001")
