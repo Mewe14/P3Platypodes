@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask import render_template, request, session, redirect, url_for, g
 import os
-from class.app import class_bp
+from classes.app import class_bp
 from club.app import club_bp
 from sports.app import sports_bp
 from teacher.app import teacher_bp
