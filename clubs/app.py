@@ -4,12 +4,13 @@ from flask import request
 from clubs import clubalgorithm
 
 clubs_bp = Blueprint('clubs', __name__,
-                     template_folder='clubs/templates',
+                     template_folder='../clubs/templates',
                      static_folder='static', static_url_path='assets')
 
 clubs = Flask(__name__)
 
-@clubs_bp.route('/clubs')
+@clubs_bp.route('/', methods=['GET', 'POST'])
 def clubs():
-    return render_template('featuredclubs.html', featuredclubs=clubalgorithm.featuredclubs)
-
+    if request.method == 'POST':
+        return render_template("featuredclubs.html", featuredclubs=clubalgorithm.featuredclubs)
+    return render_template("featuredclubs.html", featuredclubs=clubalgorithm.featuredclubs)
