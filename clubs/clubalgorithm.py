@@ -11,7 +11,7 @@ class Clubs:
 
 featuredclubs = []
 
-thetalon = Clubs('The Talon', 'dntalon.com')
+thetalon = Clubs('The Talon', 'https://www.dntalon.com')
 girlsincs = Clubs('Girls in Computer Science', 'https://www.instagram.com/girlsincs/')
 trim = Clubs('Tri-M Music Honor Society', 'https://linktr.ee/dnhstrim')
 bsu = Clubs('Black Student Union', 'https://www.instagram.com/dnhsbsu/')
