@@ -31,7 +31,7 @@ def signup():
 def login():
     return render_template('login.html')
 
-@app.route('/minilab')
+@app.route('/minilabs')
 def Minilabs():
     return render_template('minilabs.html')
 
