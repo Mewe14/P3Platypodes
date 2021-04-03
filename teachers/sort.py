@@ -1,11 +1,11 @@
 import random
 
 
-sports = ["Basketball", "Football", "Baseball", "Soccer", "Lacrosse", "Swim", "Cross Country", "Track and Field"]
+teacherss = ["Mr.Mortenson", "Mrs.Mansour", "Mr.Eckman", "Mr.Simmons", "Mrs.Decaprio"]
 
 
-class sports:
-    """Initializer of class takes series parameter and returns Class Objects"""
+class teacher:
+    """Initializer of class takes series parameter and returns Class Objectg"""
     def __init__(self, series):
         """Built in validation and exception"""
         if series < 0 or series > 7:
@@ -16,14 +16,14 @@ class sports:
         self._dictID = 0
         # Duration timeElapsed;
         # Instant start = Instant.now();  // time capture -- start
-        self.sports()
+        self.teacherss()
         # Instant end = Instant.now();    // time capture -- end
         # this.timeElapsed = Duration.between(start, end);
 
     """Algorithm for building Fibonacci sequence, this id called from __init__"""
-    def sports(self):
+    def teacherss(self):
         limit = self._series
-        f = [(random.sample((sports), k=2))]  # fibonacci starting array/list
+        f = [(random.sample((teacherss), k=2))]  # fibonacci starting array/list
         while limit > 0:
             self.set_data(f[0])
             f = [f[0]]
@@ -58,8 +58,10 @@ class sports:
 if __name__ == "__main__":
     '''Value for testing'''
     a = 2
-    '''Constructor of Class object'''
-    sports = sports(a/a)
-    print(f"Here are some sports recommendations = {sports.list}")
+'''Constructor of Class object'''
+teach = teacher(a/a)
+print(f"Here are some math recommendations = {teach.list}")
 
+#for i in range(a):
+#print(f"Listing of Book Recs {i}= {bookrecs.get_sequence(i)}")
 

@@ -5,13 +5,15 @@ from flask import request
 import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
-#from sports.app import sports_bp
+from sports.app import sports_bp
 #from teachers.app import teachers_bp
 #from administration.app import administration_bp
 
 app = Flask(__name__)
 app.register_blueprint(classes_bp, url_prefix='/classes')
 app.register_blueprint(clubs_bp, url_prefix='/clubs')
+#app.register_blueprint(teachers_bp, url_prefix='/teachers')
+app.register_blueprint(sports_bp, url_prefix='/sports')
 
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
