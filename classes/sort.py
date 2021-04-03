@@ -62,6 +62,4 @@ if __name__ == "__main__":
     math = mathematics(a/a)
     print(f"Here are some math recommendations = {math.list}")
 
-#for i in range(a):
-#print(f"Listing of Book Recs {i}= {bookrecs.get_sequence(i)}")
 
