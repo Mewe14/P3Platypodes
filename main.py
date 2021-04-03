@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask import render_template, request, session, redirect, url_for, g
+from flask import render_template, request, session, redirect, url_for
+from flask import request
 import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
@@ -11,21 +12,12 @@ from clubs.app import clubs_bp
 app = Flask(__name__)
 app.register_blueprint(classes_bp, url_prefix='/classes')
 app.register_blueprint(clubs_bp, url_prefix='/clubs')
-#app.register_blueprint(sports_bp, url_prefix='/sports')
-#app.register_blueprint(teachers_bp, url_prefix='/teacher')
 
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_file = "sqlite:///{}".format(os.path.join(project_dir, "userprofiles.db"))
-app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 db = SQLAlchemy(app)
-
-
-#@app.route('/')
-#@app.route('/landing', methods=["GET", "POST"])
-#def landing_page():
-   # users = None
 
 @app.route('/')
 def home():
@@ -39,7 +31,7 @@ def signup():
 def login():
     return render_template('login.html')
 
-@app.route('/')
+@app.route('/minilab')
 def Minilabs():
     return render_template('minilabs.html')
 
