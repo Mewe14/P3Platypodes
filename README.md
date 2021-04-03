@@ -17,6 +17,30 @@ Users will be able to view their personal profile page, which includes the data 
 
 Users will be able to reach out to other Del Norte students, perhaps through sending a small "This user wants to study with you!" message. 
 
+## Mini Lab 1
+
+#### Crystal's Classes Mini Lab
+
+1. Blueprints are located in the classes directory
+2. Classes can be found in this section of code:
+   ````
+   def math_class(self):
+   limit = self._series
+   f = [(random.sample((math_classes), k=2))]  # fibonacci starting array/list
+   while limit > 0:
+   self.set_data(f[0])
+   f = [f[0]]
+   limit -= 1
+3. I created the object math from my class mathematics
+   ````
+       math = mathematics(a/a)
+    print(f"Here are some math recommendations = {math.list}")
+4. Used getters in allclass.html
+5. This project helped give me insights on connecting blueprints with classes and objects. Furthermore, the mini-lab works very effectively with our projects focus and theme.  
+
+
+
+
 ## Creators
 
 Sophie Bulkin, Ida Mobini, Arul Salaniwal, Manuel Villa-Hernandez, Crystal Widjaja
