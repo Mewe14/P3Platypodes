@@ -29,7 +29,7 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def home():
-    return render_template('landing.html')
+    return render_template('minilabs.html')
 
 @app.route('/signup')
 def signup():
@@ -40,7 +40,7 @@ def login():
     return render_template('login.html')
 
 @app.route('/')
-def minilabs():
+def Minilabs():
     return render_template('minilabs.html')
 
 if __name__ == "__main__":
