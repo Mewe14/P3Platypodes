@@ -69,6 +69,8 @@ Users will be able to reach out to other Del Norte students, perhaps through sen
         <li><a href="{{ club.media }}">{{ club.name }}</a></li></li>
     {% endfor %}
 5. My WOW factor is displaying the class objects using a for loop and accessing their attributes via html/Jinja, specifically in how I link the featured clubs' websites. This project gave me insight into how blueprints can assist in compartmentalizing code, as well as the use of classes when I will eventually be managing a much larger data set.
+#### Sophie's Classes Mini Lab
+The wow factor is displaying both the greatest common denominator and least common multiple each time you change a and b, having it visible on the website and knowing how to include mathematical algorithms in my project. The first binary point of using an individual blueprint for my scrum team project can be shown through the minilabs. html file where I set up a table for each group members code to be organized. My blueprints can also be found in the administration directory. The second binary point says to define a class to manage a complex data set, which is shown in line 4 of the code where I define a class as Least Common Multiple. The third binary point comes from creating an object from a class in python, which is shown in line 31 which creates a class object. The 4th binary point comes from displaying data using getters which is shown in lines 19 and 23 when I write @property.  </h2>
 
 ## Creators
 
