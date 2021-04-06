@@ -5,12 +5,12 @@ math_classes = ["Calculus AB", "Integrated 1", "Integrated 2", "Integrated 3", "
 
 
 class mathematics:
-    """Initializer of class takes series parameter and returns Class Objectg"""
-    def __init__(self, series):
+    """Initializer of class takes series parameter and returns Class Object"""
+    def __init__(self, maths):
         """Built in validation and exception"""
-        if series < 0 or series > 7:
+        if maths < 0 or maths > 7:
             raise ValueError("Series must be between 2 and 10")
-        self._series = series
+        self._maths = maths
         self._list = []
         self._dict = {}
         self._dictID = 0
@@ -22,12 +22,9 @@ class mathematics:
 
     """Algorithm for building Fibonacci sequence, this id called from __init__"""
     def math_class(self):
-        limit = self._series
-        f = [(random.sample((math_classes), k=2))]  # fibonacci starting array/list
-        while limit > 0:
-            self.set_data(f[0])
-            f = [f[0]]
-            limit -= 1
+        f = [(random.sample((math_classes), k=self._maths))]  # fibonacci starting array/list
+        self.set_data(f[0])
+        f = [f[0]]
 
     """Method/Function to set Fibonacci data: list, dict, and dictID are instance variables of Class"""
     def set_data(self, num):
@@ -56,10 +53,8 @@ class mathematics:
 
 
 if __name__ == "__main__":
-    '''Value for testing'''
-    a = 2
     '''Constructor of Class object'''
-    math = mathematics(a/a)
+    math = mathematics(2)
     print(f"Here are some math recommendations = {math.list}")
 
 
