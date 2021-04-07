@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LinkDN | Sophies Mini Lab</title>
+</head>
+<body>
+{% include 'nav.html' %}
+
+<h3>Sophies Mini Lab</h3>
+<form method="post">
+    <div class="form-group">
+        <label for="a">enter your first number</label>
+        <input class="form-control" id="a" name="a" aria-describedby="emailHelp" placeholder="Enter an integer">
+    </div>
+    <div class="form-group">
+        <label for="b">enter your second number</label>
+        <input class="form-control" id="b" name="b" placeholder="Enter an integer">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+<h3>LCM of {{ a }} and {{ b }} is {{ lcm }} and the GCD is {{ gcd }}</h3>
+<ul>
+    {% for algorithm in sophieminilab %}
+    <li><a href="{{ algorithm.media }}">{{ sophieminilab.name }}</a></li></li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

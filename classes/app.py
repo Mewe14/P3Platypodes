@@ -11,6 +11,7 @@ classes_bp = Blueprint('classes', __name__,
                        template_folder='templates',
                        static_folder='static', static_url_path='assets')
 
+
 @classes_bp.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':

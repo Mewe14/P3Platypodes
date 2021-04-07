@@ -6,6 +6,7 @@ import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
 from sports.app import sports_bp
+from algorithm.app import algorithm_bp
 #from teachers.app import teachers_bp
 #from administration.app import administration_bp
 
@@ -14,6 +15,8 @@ app.register_blueprint(classes_bp, url_prefix='/classes')
 app.register_blueprint(clubs_bp, url_prefix='/clubs')
 #app.register_blueprint(teachers_bp, url_prefix='/teachers')
 app.register_blueprint(sports_bp, url_prefix='/sports')
+app.register_blueprint(algorithm_bp, url_prefix='/algorithm')
+
 
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
@@ -36,6 +39,9 @@ def login():
 @app.route('/minilabs')
 def Minilabs():
     return render_template('minilabs.html')
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="127.0.0.1", port="5001")
