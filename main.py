@@ -40,7 +40,13 @@ def login():
 def Minilabs():
     return render_template('minilabs.html')
 
+@app.route('/quiz')
+def Quiz():
+    return render_template("quiz.html")
 
+@app.route('/Responses/')
+def Responses():
+    return render_template("Responses.html")
 
 
 if __name__ == "__main__":

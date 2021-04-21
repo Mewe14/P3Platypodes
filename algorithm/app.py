@@ -18,7 +18,7 @@ def algorithm():
 
         from math import gcd
 
-        class LeastCommonMultiple:
+        class LeastCommonMultiple: ##this is where I define a class
 
             def __init__(self, a,b):
                 self._multiple = self.lcm()
