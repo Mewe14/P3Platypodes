@@ -14,19 +14,15 @@ class mathematics:
         self._list = []
         self._dict = {}
         self._dictID = 0
-        # Duration timeElapsed;
-        # Instant start = Instant.now();  // time capture -- start
         self.math_class()
-        # Instant end = Instant.now();    // time capture -- end
-        # this.timeElapsed = Duration.between(start, end);
 
-    """Algorithm for building Fibonacci sequence, this id called from __init__"""
+    """Algorithm for building random sequence, this id called from __init__"""
     def math_class(self):
-        f = [(random.sample((math_classes), k=self._maths))]  # fibonacci starting array/list
+        f = [(random.sample((math_classes), k=self._maths))]  # random starting array/list
         self.set_data(f[0])
         f = [f[0]]
 
-    """Method/Function to set Fibonacci data: list, dict, and dictID are instance variables of Class"""
+    """Method/Function to set random data: list, dict, and dictID are instance variables of Class"""
     def set_data(self, num):
         self._list.append(num)
         self._dict[self._dictID] = self._list.copy()
