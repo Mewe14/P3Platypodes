@@ -8,11 +8,22 @@
 <body>
 {% include 'nav.html' %}
 
-<h3>Featured Clubs</h3>
+<h1>Del Norte Clubs</h1>
+
+<form method="post">
+    <button type="submit" class="btn btn-primary">Generate featured clubs</button>
+</form>
 
 <ul>
     {% for club in featuredclubs %}
-        <li><a href="{{ club.media }}">{{ club.name }}</a></li></li>
+        <li><a href="{{ club.media }}">{{ club.name }}</a></li>
+    {% endfor %}
+</ul>
+
+<h3>All Clubs</h3>
+<ul>
+    {% for club in clubslist %}
+    <li><a href="{{ club.media }}">{{ club.name }}</a></li>
     {% endfor %}
 </ul>
 

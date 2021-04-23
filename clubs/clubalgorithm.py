@@ -1,3 +1,9 @@
+import csv
+
+clubsfile = open('clubs/static/clubstest.csv')
+clubsreader = csv.reader(clubsfile)
+clubsdata = list(clubsreader)
+
 class Clubs:
     def __init__(self, name, media):
         self.name = name
@@ -9,18 +15,6 @@ class Clubs:
     def get_media(self):
         return self.media
 
-featuredclubs = []
-
-thetalon = Clubs('The Talon', 'https://www.dntalon.com')
-girlsincs = Clubs('Girls in Computer Science', 'https://www.instagram.com/girlsincs/')
-trim = Clubs('Tri-M Music Honor Society', 'https://linktr.ee/dnhstrim')
-bsu = Clubs('Black Student Union', 'https://www.instagram.com/dnhsbsu/')
-
-featuredclubs.append(thetalon)
-featuredclubs.append(girlsincs)
-featuredclubs.append(trim)
-featuredclubs.append(bsu)
-
-# print(thetalon.media)
-# Eventually I will have a local API of clubs at our school and the featured clubs list will be randomly selected
-# Can class objects be created automatically?
+clubslist = [Clubs(club[1], club[2]) for club in clubsdata]
+# for club in clubslist:
+    # print(club.get_name())
