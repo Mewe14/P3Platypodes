@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body  {
+        background-image: url('/static/green.jpg'); background-size: cover;
+    }
+    h1 {
+  color: white;
+  font-family: times new roman;
+  font-size: 300%;
+  text-align: center;
+    }
+.button {
+  color: white;
+  text-align: center;
+  font-size: 8px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+     h3 {
+  color: white;
+  font-family: times new roman;
+    }
+    </style>
+</head>
+<body>
+{% include 'nav.html' %}
+<h1>Classes</h1>
+
+<div align="left">
+    <section id="done">
+        <form id="form" action="" method="POST">
+            <input type="checkbox" id="subject1" name="sort" value="AP US History">
+            <label for="group1">AP US History</label>
+            <input type="checkbox" id="subject2" name="sort" value="Pre-Calculus">
+            <label for="group2">Pre-Calculus</label>
+            <input type="checkbox" id="subject3" name="sort" value="Honors Humanities">
+            <label for="group3">Honors Humanities</label>
+            <input type="checkbox" id="subject4" name="sort" value="Racquet Sports">
+            <label for="group4">Racquet Sports</label>
+            <button class="btn  my-2 my-sm-0 text-white bg-info" type="submit"> Alphabetize these classes</button>
+        </form>
+    </section>
+
+    <h3> {{bubbles.list}}</h3>
+</div>
+</body>
+</html>

@@ -1,24 +1,70 @@
-
 def bubbleSort(arr):
     n = len(arr)
-
     # Traverse through all array elements
     for i in range(n):
+        swapped = False
 
-        # Last i elements are already in place
+        # Last i elements are already
+        #  in place
         for j in range(0, n-i-1):
 
-            # traverse the array from 0 to n-i-1
-            # Swap if the element found is greater
-            # than the next element
+            # traverse the array from 0 to
+            # n-i-1. Swap if the element
+            # found is greater than the
+            # next element
             if arr[j] > arr[j+1] :
                 arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = True
 
-# Driver code to test above
-arr = [64, 34, 25, 12, 22, 11, 90]
+        # IF no two elements were swapped
+        # by inner loop, then break
+        if swapped == False:
+            break
+    print(arr)
 
-bubbleSort(arr)
 
-print ("Sorted array is:")
-for i in range(len(arr)):
-    print ("%d" %arr[i]),
+class BubbleSort:
+    """Initializer of class takes series parameter and returns Class Objects"""
+    def __init__(self, arr):
+        """Built in validation and exception"""
+        self._arr = arr
+        self._list = []
+        self._dict = {}
+        self._dictID = 0
+        # Duration timeElapsed;
+        # Instant start = Instant.now();  // time capture -- start
+        self.ssort()
+        # Instant end = Instant.now();    // time capture -- end
+        # this.timeElapsed = Duration.between(start, end);
+
+
+
+    """Algorithm for building book series list, this id called from __init__"""
+    def ssort(self):
+        f = bubbleSort(self._arr)
+
+        """Getters with decorator to allow . notation access"""
+    @property
+    def series(self):
+        return self.ssort
+
+    @property
+    def list(self):
+        return self._arr
+
+    @property
+    def number(self):
+        return self._list[self._dictID - 1]
+
+    """Traditional Getter requires method access"""
+    def get_sequence(self, nth):
+        return self._dict[nth]
+
+
+
+if __name__ == "__main__":
+    '''Value for testing'''
+
+    '''Constructor of Class object'''
+    x = [7, 8, 4, 32, 1, 3]
+    bubbles = BubbleSort(x)
