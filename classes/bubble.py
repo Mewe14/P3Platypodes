@@ -31,12 +31,7 @@ class BubbleSort:
         self._list = []
         self._dict = {}
         self._dictID = 0
-        # Duration timeElapsed;
-        # Instant start = Instant.now();  // time capture -- start
         self.ssort()
-        # Instant end = Instant.now();    // time capture -- end
-        # this.timeElapsed = Duration.between(start, end);
-
 
 
     """Algorithm for building book series list, this id called from __init__"""
