@@ -1,27 +1,78 @@
-<h3>Contact Form</h3>
-
-<div class="container">
-    <form action="/Responses/">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="first name..">
-
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="last name..">
-
-        <label for="Grade">Grade</label>
-        <select id="grade" name="grade">
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-        </select>
-
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Which subject do you feel you are the strongest in?" style="height:200px"></textarea>
-
-        <input type="submit" value="Submit">
+{% extends "navbar.html" %}
+{% block link1 %}
+{% if question_index == data|length - 1 %}
+<form action="/submit" method="post">
+    {% else %}
+    <form action="/next" method="post">
+        {% endif %}
+        <div class="question">
+            <div class="question_text">{{ data[question_index].question }}</div>
+            {% for answer in data[question_index].answers %}
+            <div class="question_answer">
+                <label>
+                    <input type="radio" name="answer" value="{{ answer.index }}" onclick="onSelectQuestion(event)">
+                    {{ answer.text }}
+                </label>
+            </div>
+            {% endfor %}
+            <input type="hidden" name="next_question" value="{{ question_index + 1 }}">
+            <input type="hidden" name="answers" value="{{ answers }}">
+            {% if question_index == data|length - 1 %}
+            <input type="submit" value="Submit" class="button" disabled>
+            {% else %}
+            <input type="submit" value="Next" class="button" disabled>
+            {% endif %}
+        </div>
     </form>
-</div>
+    <script>
+  function onSelectQuestion(event) {
+    document.querySelectorAll('.button').forEach((button) => {
+      button.removeAttribute('disabled');
+    });
+    const answersInput  = document.getElementsByName('answers')[0];
+    const answersObj = JSON.parse(answersInput.value);
+    answersObj['{{question_index}}'] = event.currentTarget.value;
+    answersInput.value = JSON.stringify(answersObj);
+  }
+</script>
+    <style>
+  label {
+    margin-top: .5rem;
+  }
+  input {
+    margin-right: 12px;
+  }
+  .question {
+    width: 800px;
+  }
+  .question_text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-left: 16px;
+  }
+  .question_answer {
+    margin-left: 32px;
+    border-bottom: dotted 1px lightgray;
+  }
+  .button {
+    margin: 16px;
+  }
+</style>
+    {% endblock %}
 
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

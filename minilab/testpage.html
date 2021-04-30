@@ -1,0 +1,45 @@
+ml>
+{% extends "base.html" %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GRACE TESTING</title>
+    <h1 style="text-align:center; color:white">Grace's Bubblesorting Minilab</h1>
+    <style>
+    body {
+    background-color: #041e42
+    }
+</style>
+    <form id="fibForm" action="/minilab/testing" method="POST" >
+        <h2 style="color:white; font-size:25px">Insert a list of 4 numbers below</h2>
+        <label for="list" class="pt-5" style="color:white; font-size:25px">Enter a List:</label>
+        <input id="list" name="list" placeholder="ex: 3,7,5,8" type="text" style="height:40px" ;required="required">
+        <button class="button" style="height:35px; width: 35px"><span>Go</span></button>
+    </form>
+    <br>
+    <br>
+    <table class="container">
+        <thead>
+        <tr style="word-break:break-all">
+            <th  style="color:white; font-size:25px" width="50px"><h1>List</h1></th>
+            <th  style="color:white" width="400px"><h1>Bubblesort</h1></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="word-break:break-all;">
+            <td style="color:white">{{g}}</td>
+            <td style="color:white">{{list}}</td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</head>
+<body>
+
+</body>
+</html>
+{% endblock %}
