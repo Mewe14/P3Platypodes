@@ -16,6 +16,7 @@ app.register_blueprint(clubs_bp, url_prefix='/clubs')
 #app.register_blueprint(teachers_bp, url_prefix='/teachers')
 app.register_blueprint(sports_bp, url_prefix='/sports')
 app.register_blueprint(algorithm_bp, url_prefix='/algorithm')
+app.register_blueprint(algorithm_bp, url_prefix='/minilab')
 
 
 ''' database setup  '''
@@ -47,6 +48,8 @@ def feedback():
 @app.route('/Responses/')
 def Responses():
     return render_template("Responses.html")
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, port="5003")

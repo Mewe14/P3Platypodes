@@ -15,16 +15,7 @@ class bubblesorting:
         value_g = value_1
         arr = value_g.split(',')
         value = arr
-        #value = value_1
 
-
-        #g_var1 = value_1[1]
-        #g_var2 = value_1[2]
-        #g_var3 = value_1[3]
-        #g_var4 = value_1[4]
-        #value = [g_var1, g_var2, g_var3, g_var4, g_var1, g_var2, g_var3, g_var4,]
-
-        #sys.stdout.write(n)
 
         # Traverse through all array elements
         for i in range(n):
