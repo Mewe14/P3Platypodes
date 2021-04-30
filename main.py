@@ -40,14 +40,11 @@ def login():
 def Minilabs():
     return render_template('minilabs.html')
 
-@app.route('/quiz')
-def Quiz():
-    return render_template("quiz.html")
+@app.route('/feedback')
+def feedback():
+    return render_template("feedback.html")
 
 @app.route('/Responses/')
 def Responses():
     return render_template("Responses.html")
 
-
-if __name__ == "__main__":
-    app.run(debug=True, host="127.0.0.1", port="5001")
