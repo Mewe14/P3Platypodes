@@ -17,4 +17,4 @@ class Clubs:
 
 clubslist = [Clubs(club[1], club[2]) for club in clubsdata]
 # for club in clubslist:
-    # print(club.get_name())
+    # print(club)
