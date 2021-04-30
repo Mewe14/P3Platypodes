@@ -48,3 +48,5 @@ def feedback():
 def Responses():
     return render_template("Responses.html")
 
+if __name__ == "__main__":
+    app.run(debug=True, port="5003")

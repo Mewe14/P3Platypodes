@@ -20,4 +20,4 @@ def home():
 @classes_bp.route('/bubblesort', methods=['GET', 'POST'])
 def alphabetize():
     sort = request.form.getlist("sort")
-    return render_template("bubble.html", bubbles=BubbleSort(sort)
+    return render_template("bubble.html", bubbles=BubbleSort(sort))
