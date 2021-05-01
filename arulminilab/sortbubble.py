@@ -24,7 +24,7 @@ class arulbubble:
     print("Bubble Sort")
 
     while True:
-        print("Enter as many numbers as you want.\n choose a number between 0 and 9.\nremember to Leave a space between each one and hit enter")
+        print("Enter as many integers you want sorted.\n choose an integer between 0 and 9.\nremember to leave a space between each one and hit enter")
         numbers = input()
         items = [int(num) for num in numbers.split() if num.isdigit()]
         if items: bubble_sort(items)
