@@ -1,19 +1,18 @@
-import sys
-import numpy as np
 
-class bubblesorting:
+
+class sophiebubble:
     def __init__(self):
         self._lst=[]
 
-    def g_original(g_test):
-        g_var1 =  g_test
-        return g_var1.split(',')
+    def sorty_original(sorty_test):
+        sorty_var1 =  sorty_test
+        return sorty_var1.split(',')
 
     def bubbleSort(value_1):
 
         n = len(value_1)-3
-        value_g = value_1
-        arr = value_g.split(',')
+        value_sorty = value_1
+        arr = value_sorty.split(',')
         value = arr
 
 
