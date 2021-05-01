@@ -10,7 +10,7 @@ from algorithm.app import algorithm_bp
 #from teachers.app import teachers_bp
 #from administration.app import administration_bp
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="Templates")
 app.register_blueprint(classes_bp, url_prefix='/classes')
 app.register_blueprint(clubs_bp, url_prefix='/clubs')
 #app.register_blueprint(teachers_bp, url_prefix='/teachers')
