@@ -1,10 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from flask import render_template, request, session, redirect, url_for
-from flask import request
+from flask import render_template
 import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
+from minilab.app import minilab_bp
 from sports.app import sports_bp
 from algorithm.app import algorithm_bp
 #from teachers.app import teachers_bp
@@ -16,6 +16,7 @@ app.register_blueprint(clubs_bp, url_prefix='/clubs')
 #app.register_blueprint(teachers_bp, url_prefix='/teachers')
 app.register_blueprint(sports_bp, url_prefix='/sports')
 app.register_blueprint(algorithm_bp, url_prefix='/algorithm')
+app.register_blueprint(minilab_bp, url_prefix= '/minilab')
 
 
 ''' database setup  '''
@@ -47,6 +48,8 @@ def feedback():
 @app.route('/Responses/')
 def Responses():
     return render_template("Responses.html")
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, port="5003")

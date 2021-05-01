@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LinkDN | Sophies Bubble Sort Lab</title>
+</head>
+
+{% include 'nav.html' %}
+    <title>SOPHIE TESTING</title>
+    <h1 style="text-align:center; color:white">Sophie's Bubblesorting Minilab</h1>
+    <style>
+    body {
+    background-color: #075227
+    }
+</style>
+    <form id="fibForm" action="/minilab/testing" method="POST" >
+        <h2 style="text-align:center; color:white; font-size:25px">Insert 4 numbers into the space below</h2>
+        <label for="list" class="pt-5" style="text-align:right; color:white; font-size:25px">Enter a List:</label>
+        <input id="list" name="list" placeholder="ex: 1,2,3,4" type="text" style="text-align:center; height:40px" ;required="required">
+        <button class="button" style="color:pink; height:35px; width: 35px"><span>Go</span></button>
+    </form>
+    <br>
+    <br>
+    <table class="container">
+        <thead>
+        <tr style="word-break:break-all">
+            <th  style="text-align:center; color:white; font-size:25px" width="500px"><h1>List</h1></th>
+            <th  style="text-align:center; color:white" width="400px"><h1>Bubblesort</h1></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="word-break:break-all;">
+            <td style="text-align:center; color:white">{{sorty}}</td>
+            <td style="text-align:center; color:white">{{list}}</td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</head>
+<body>
+
+</body>
+</html>
