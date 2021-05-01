@@ -7,6 +7,7 @@ from clubs.app import clubs_bp
 from minilab.app import minilab_bp
 from sports.app import sports_bp
 from algorithm.app import algorithm_bp
+#from manuelminilab.app import manuelminilab_bp
 #from teachers.app import teachers_bp
 #from administration.app import administration_bp
 
@@ -17,7 +18,7 @@ app.register_blueprint(clubs_bp, url_prefix='/clubs')
 app.register_blueprint(sports_bp, url_prefix='/sports')
 app.register_blueprint(algorithm_bp, url_prefix='/algorithm')
 app.register_blueprint(minilab_bp, url_prefix= '/minilab')
-
+#app.register_blueprint(manuelminilab_bp, url_prefix= '/manuelminilab')
 
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
