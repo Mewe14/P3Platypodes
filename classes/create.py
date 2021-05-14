@@ -6,6 +6,7 @@ class Create:
         self.ssort()
 
 
+
     def ssort(self):
         n = len(self._arr)
         # Traverse through all array elements
@@ -54,20 +55,20 @@ class Create:
         print("Element is not present in array")
         return -1
 
-# Getter
-@property
-def list(self):
-    return self._arr
+
+    # Getter
+    @property
+    def list(self):
+        return self._arr
 
 
 # Bubble Sort
 y = [10, 33, 4, 17, 40]
 if __name__ == "__main__":
-    creates = Create(y.copy())
+    self = Create(y.copy())
     print(y)
-    print(creates._arr)
+    print(self._arr)
 
 # Binary Search
-x = 33
-Create.binarysearch(creates._arr, 0, len(y)-1, x)
-
+x = 10
+#Create.binarysearch(self._arr, 0, len(y)-1, x)

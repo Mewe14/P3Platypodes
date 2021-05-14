@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body  {
+        background-image: url('/static/light.jpg'); background-size: cover;
+    }
+    h1 {
+  color: black;
+  font-family: times new roman;
+  font-size: 300%;
+  text-align: center;
+    }
+     h3 {
+  color: black;
+  font-family: times new roman;
+    }
+    </style>
+</head>
+<body>
+    <form action="/classes/create" method="post">
+        <label for="v1">Value 1</label><br>
+        <input type="number" id="v1" name="v1"><br>
+        <label for="v2">Value 2</label><br>
+        <input type="number" id="v2" name="v1"><br>
+        <label for="v3">Value 3</label><br>
+        <input type="number" id="v3" name="v1"><br>
+        <label for="v4">Value 4</label><br>
+        <input type="number" id="v4" name="v1"><br>
+        <label for="v5">Value 5</label><br>
+        <input type="number" id="v5" name="v1"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {{nums.list}}
+
+</body>
+</html>
