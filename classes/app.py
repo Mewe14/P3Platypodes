@@ -28,6 +28,11 @@ def alphabetize():
 @classes_bp.route('/create', methods=['GET', 'POST'])
 def createe():
     if request.method == 'POST':
-        numbers = request.form.getlist("v1")
-        return render_template("create.html", nums=Create(numbers))
-    return render_template("create.html", nums=Create([5, 3, 2, 1, 6]))
+        strings = request.form.getlist("v1")
+        numbers = []
+        # turns the string from html into numbers
+        for string in strings:
+            numbers.append(int(string))
+        find = int(request.form.get("find"))
+        return render_template("create.html", nums=Create(numbers, find))
+    return render_template("create.html", nums=Create([5, 3, 2, 1, 6], 3))

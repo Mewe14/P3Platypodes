@@ -1,9 +1,11 @@
 class Create:
     """Initializer of class takes series parameter and returns Class Objects"""
-    def __init__(self, arr):
+    def __init__(self, arr, find):
         """Built in validation and exception"""
         self._arr = arr
         self.ssort()
+        self._find = find
+        self._index = self.binarysearch()
 
 
 
@@ -30,29 +32,31 @@ class Create:
             if swapped == False:
                 break
 
-    def binarysearch(arr, l, r, x):
+    def binarysearch(self):
+        l = 0
+        r = len(self._arr)-1
 
         while l <= r:
 
             mid = l + (r - l) // 2;
 
             # Check if x is present at mid
-            if arr[mid] == x:
-                print("Element is present at position % d" % mid)
+            if self._arr[mid] == self._find:
+                # print("Element is present at position % d" % mid)
                 return mid
 
             # If x is greater, ignore left half
-            elif arr[mid] < x:
+            elif self._arr[mid] < self._find:
                 l = mid + 1
 
             # If x is smaller, ignore right half
-            elif arr[mid] > x:
+            elif self._arr[mid] > self._find:
                 r = mid - 1
 
             # If x is not present, it will say so
 
 
-        print("Element is not present in array")
+        # print("Element is not present in array")
         return -1
 
 
@@ -61,14 +65,18 @@ class Create:
     def list(self):
         return self._arr
 
+    @property
+    def index(self):
+        return self._index
+
 
 # Bubble Sort
-y = [10, 33, 4, 17, 40]
 if __name__ == "__main__":
-    self = Create(y.copy())
+    y = [10, 33, 4, 17, 40]
+    find = 33
+    obj = Create(y.copy(), find)
     print(y)
-    print(self._arr)
-
-# Binary Search
-x = 10
-#Create.binarysearch(self._arr, 0, len(y)-1, x)
+    print(obj.list)
+    print(obj.index)
+    # Binary Search
+    # obj.binarysearch(obj.find)
