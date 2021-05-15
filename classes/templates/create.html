@@ -6,37 +6,101 @@
     body  {
         background-image: url('/static/light.jpg'); background-size: cover;
     }
+            body {font-family: times new roman}
+        * {box-sizing: border-box;}
+
+        .form-inline {
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+        }
+
+        .form-inline label {
+          margin: 5px 10px 5px 0;
+        }
+
+        .form-inline input {
+          vertical-align: middle;
+          margin: 5px 10px 5px 0;
+          padding: 10px;
+          background-color: #fff;
+          border: 1px solid #ddd;
+        }
+
+        .form-inline button:hover {
+          background-color: royalblue;
+        }
+
+        @media (max-width: 800px) {
+          .form-inline input {
+            margin: 10px 0;
+          }
+
+          .form-inline {
+            flex-direction: column;
+            align-items: stretch;
+          }
+        }
     h1 {
   color: black;
   font-family: times new roman;
   font-size: 300%;
   text-align: center;
     }
+
      h3 {
   color: black;
   font-family: times new roman;
     }
+    h2 {
+  color: black;
+  font-family: times new roman;
+  font-size: 200%;
+  text-align: left;
+    }
+    h4 {
+  color: red;
+  font-family: times new roman;
+  font-size: 130%;
+    }
     </style>
 </head>
+<h1>Learn Bubble Sort and Binary Search</h1>
+
 <body>
-    <form action="/classes/create" method="post">
-        <label for="v1">Value 1</label><br>
-        <input type="number" id="v1" name="v1"><br>
-        <label for="v2">Value 2</label><br>
-        <input type="number" id="v2" name="v1"><br>
-        <label for="v3">Value 3</label><br>
-        <input type="number" id="v3" name="v1"><br>
-        <label for="v4">Value 4</label><br>
-        <input type="number" id="v4" name="v1"><br>
-        <label for="v5">Value 5</label><br>
-        <input type="number" id="v5" name="v1"><br>
-        <label for="find">Find Value</label><br>
-        <input type="number" id="find" name="find"><br>
-        <input type="submit" value="Submit">
+<h2>Insert 5 unique numbers and pick one of those numbers to search for</h2>
+
+    <form class="form-inline" action="/classes/create" method="post">
+        <label for="v1">Value 1:</label>
+        <input type="number" id="v1" placeholder="Value 1" name="v1" style="width: 100px;">
+        <label for="v2">Value 2:</label>
+        <input type="number" id="v2" placeholder="Value 2" name="v1" style="width: 100px;">
+        <label for="v3">Value 3:</label>
+        <input type="number" id="v3" placeholder="Value 3" name="v1" style="width: 100px;">
+        <label for="v4">Value 4:</label>
+        <input type="number" id="v4" placeholder="Value 4" name="v1" style="width: 100px;">
+        <label for="v5">Value 5:</label>
+        <input type="number" id="v5" placeholder="Value 5" name="v1" style="width: 100px;">
+        <label for="v5">        Pick a value to find</label>
+        <input type="number" id="find" placeholder="Find a value" name="find" style="width: 150px;">
+        </label>
+        <button type="submit">Submit</button>
     </form>
 
-    {{nums.list}}
-    {{nums.index}}
+    <h2>Bubble Sort</h2>
+    <h3>Purpose: The bubble sort will take your 5 numbers and sort them from low to high</h3>
+    <h3>First the sort takes the first two numbers in the list and evaluates which value is larger, swapping if necessary</h3>
+    <h3>The sort will continue to compare the congruent values until the list is ordered from low to high</h3>
+    <h3>Eventually, we get the final list as observed here: <span style="color: red; text-decoration: underline">{{nums.list}}</span></h3>
+
+    <h2>Binary Search</h2>
+    <h3>Purpose: The binary search will find the number you select</h3>
+    <h3>Binary Searches require an ordered list, so the search will utilize the list that was made by the bubble sort</h3>
+    <h3>First the search will find the <span style="color: green">middle value </span></h3>
+    <h3>Then the search will evaluate if the <span style="color: #0000FF">desired value </span> is higher, lower, or equal to the <span style="color: green">middle value </span></h3>
+    <h3>From here, the search will continue looking at the numbers right of the original value and establish a new middle value</h3>
+    <h3>The repetition continues to whittle down the selection pool until the <span style="color: #0000FF">desired value </span> is found</h3>
+    <h3>Congrats the <span style="color: #0000FF">desired value </span> is found in position <span style="color: red; text-decoration: underline">{{nums.index}} </span></h3>
 
 </body>
 </html>

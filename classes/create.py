@@ -42,7 +42,6 @@ class Create:
 
             # Check if x is present at mid
             if self._arr[mid] == self._find:
-                # print("Element is present at position % d" % mid)
                 return mid
 
             # If x is greater, ignore left half
@@ -53,14 +52,11 @@ class Create:
             elif self._arr[mid] > self._find:
                 r = mid - 1
 
-            # If x is not present, it will say so
-
-
-        # print("Element is not present in array")
+            # If x is not present, it will return -1
         return -1
 
 
-    # Getter
+    # Getters
     @property
     def list(self):
         return self._arr
@@ -70,13 +66,14 @@ class Create:
         return self._index
 
 
-# Bubble Sort
+# Printing and testing code
 if __name__ == "__main__":
     y = [10, 33, 4, 17, 40]
     find = 33
     obj = Create(y.copy(), find)
     print(y)
+    # the list is used to display the bubble sort
     print(obj.list)
+    # the index is used to display the binary search
     print(obj.index)
-    # Binary Search
-    # obj.binarysearch(obj.find)
+

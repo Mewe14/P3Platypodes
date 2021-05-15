@@ -35,4 +35,4 @@ def createe():
             numbers.append(int(string))
         find = int(request.form.get("find"))
         return render_template("create.html", nums=Create(numbers, find))
-    return render_template("create.html", nums=Create([5, 3, 2, 1, 6], 3))
+    return render_template("create.html", nums=Create([0, 0, 0, 0, 0], 0))
