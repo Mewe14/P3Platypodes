@@ -20,7 +20,6 @@ class manuelbubble:
 
         print(items)
 
-
     print("Bubble Sort")
 
     while True:
