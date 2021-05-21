@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
@@ -27,13 +27,19 @@ db = SQLAlchemy(app)
 def home():
     return render_template('landing.html')
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET','POST'])
 def signup():
-    return render_template('signup.html')
+    if request.method == 'POST':
+        return redirect(url_for("home"))
+    else:
+        return render_template('signup.html')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    if request.method == 'POST':
+        return redirect(url_for("home"))
+    else:
+        return render_template('login.html')
 
 @app.route('/minilabs')
 def Minilabs():

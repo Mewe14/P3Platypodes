@@ -10,12 +10,12 @@ class sophiebubble:
         return sorty_var1.split(',')
 
     def num(integer):
-        num = input('input a number')
-        num = int(num)
-    if num > 10000:
-        print('that number is too high')
-    if num < 0:
-        print ('that number is too low')
+        val = input('input a number')
+        val = int(val)
+        if val > 10000:
+            print('that number is too high')
+        if val < 0:
+            print ('that number is too low')
 
 
     def bubbleSort(value_1):
