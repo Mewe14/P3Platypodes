@@ -49,6 +49,10 @@ def Minilabs():
 def feedback():
     return render_template("feedback.html")
 
+@app.route('/process')
+def process():
+    return render_template("process.html")
+
 @app.route('/Responses/')
 def Responses():
     return render_template("Responses.html")
