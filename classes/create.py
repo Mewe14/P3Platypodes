@@ -40,27 +40,27 @@ class Create:
 
             mid = l + (r - l) // 2;
 
-            # Check if x is present at mid
+            # Check if desired value is present at mid
             if self._arr[mid] == self._find:
                 return mid
 
-            # If x is greater, ignore left half
+            # If desired value is greater, ignore left half
             elif self._arr[mid] < self._find:
                 l = mid + 1
 
-            # If x is smaller, ignore right half
+            # If desired value is smaller, ignore right half
             elif self._arr[mid] > self._find:
                 r = mid - 1
 
-            # If x is not present, it will return -1
+            # If desired value is not present, it will return -1
         return -1
-
 
     # Getters
     @property
     def list(self):
         return self._arr
 
+    # this getter is used specifically for the binary search
     @property
     def index(self):
         return self._index
@@ -70,6 +70,7 @@ class Create:
 if __name__ == "__main__":
     y = [10, 33, 4, 17, 40]
     find = 33
+    # creates an object with the sorted list and desired value's position
     obj = Create(y.copy(), find)
     print(y)
     # the list is used to display the bubble sort

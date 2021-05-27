@@ -40,7 +40,7 @@ if __name__ == "__main__":
     '''Value for testing'''
 
     '''Constructor of Class object'''
-    x = [7, 8, 4, 32, 1, 3]
+    x = [3, 7]
     bubbles = BubbleSort(x.copy())
     print(x)
     print(bubbles.list)

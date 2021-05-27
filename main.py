@@ -41,22 +41,30 @@ def login():
     else:
         return render_template('login.html')
 
+
 @app.route('/minilabs')
 def Minilabs():
     return render_template('minilabs.html')
+
+
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
 
 @app.route('/feedback')
 def feedback():
     return render_template("feedback.html")
 
+
 @app.route('/process')
 def process():
     return render_template("process.html")
 
+
 @app.route('/Responses/')
 def Responses():
     return render_template("Responses.html")
-
 
 
 if __name__ == "__main__":
