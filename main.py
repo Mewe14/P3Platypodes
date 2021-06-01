@@ -61,6 +61,9 @@ def feedback():
 def process():
     return render_template("process.html")
 
+@app.route('/contact')
+def process():
+    return render_template("contact.html")
 
 @app.route('/Responses/')
 def Responses():
