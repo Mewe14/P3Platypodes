@@ -62,7 +62,7 @@ def process():
     return render_template("process.html")
 
 @app.route('/contact')
-def process():
+def contact():
     return render_template("contact.html")
 
 @app.route('/Responses/')
