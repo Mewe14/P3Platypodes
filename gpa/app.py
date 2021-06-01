@@ -3,12 +3,12 @@ from flask import Flask, Blueprint, render_template
 from flask import request
 
 
-gpacalculator_bp = Blueprint('gpa', __name__,
+gpacalculator_bp = Blueprint('/gpa', __name__,
                          template_folder='../gpa/templates',
                          static_folder='static', static_url_path='assets')
 
 gpa = Flask(__name__)
-@gpacalculator_bp.route('/', methods=["GET", "POST"])
+@gpacalculator_bp.route('/gpa', methods=["GET", "POST"])
 def gpa():
     if request.method == 'POST':
         print(request.method)
@@ -45,21 +45,23 @@ def calculate():
         elif element == "A":
             total = total + 4.0
         elif element == "A-":
-            total = total + 3.7
+            total = total + 4.0
         elif element == "B+":
-            total = total + 3.3
+            total = total + 3.0
         elif element == "B":
             total = total + 3.0
         elif element == "B-":
-            total = total + 2.7
+            total = total + 3.0
         elif element == "C+":
-            total = total + 2.3
+            total = total + 2.0
         elif element == "C":
             total = total + 2.0
         elif element == "C-":
-            total = total + 1.7
+            total = total + 1.0
         elif element == "D":
             total = total + 1.0
+        elif element == "F":
+            total = total + 0.0
     gpa = total / 6
     print(gpa)
 

@@ -12,11 +12,15 @@
     body {
     background-color: #075227
     }
+
 </style>
-<form id="fibForm" action="/gpa/app" method="POST"
-<h2 style="text-align:center; color:white; font-size:25px">Insert 4 numbers into the space below</h2>
-<label for="list" class="pt-5" style="text-align:right; color:white; font-size:25px">Enter a List:</label>
-<input id="list" name="list" placeholder="ex: 1,2,3,4" type="text" style="text-align:center; height:40px" ;required="required">
+<form id="fibForm" action="/gpa/app" method="POST">
+<h2 style="text-align:center; color:white; font-size:25px">Insert 6 classes into the space below</h2>
+<label for="g" class="pt-5" style="text-align:right; color:white; font-size:25px">Enter your classes:</label>
+<input id="g" name="g" placeholder="ex: math,science,english,comp sci, pe,history" type="text" style="text-align:center; height:40px";required="required">
+    <h3 style="text-align:center; color:white; font-size:25px">Insert your grades into the space below</h3>
+    <label for="c" class="pt-5" style="text-align:right; color:white; font-size:25px">Enter your grades:</label>
+    <input id="c" name="c" placeholder="ex: A,B,A,A,C,A" type="text" style="text-align:center; height:40px";required="required">
 <button class="button" style="color:pink; height:35px; width: 35px"><span>Go</span></button>
 </form>
 <br>
@@ -31,8 +35,8 @@
     </thead>
     <tbody>
     <tr style="word-break:break-all;">
-        <td style="text-align:center; color:white">{{sorty}}</td>
-        <td style="text-align:center; color:white">{{list}}</td>
+        <td style="text-align:center; color:white">{{g}}</td>
+        <td style="text-align:center; color:white">{{c}}</td>
 
     </tr>
 
