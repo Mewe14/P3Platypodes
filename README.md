@@ -7,6 +7,12 @@ LinkDN is an aspiring social media site exclusive to Del Norte's students. Stude
 For now, clone our repository on your machine and run main.py. Website will be deployed ASAP. 
 
 [Project Plan](https://docs.google.com/document/d/1FGxx_jWIMwzBsvnnm7vjAKN-VX4sEd5dISR_Y26ovc8/edit)
+
+## Focus for this week
+
+Please view the "issues" section of this repository to look at what we're focusing on this week and what has been deployed
+[Issues Page](https://github.com/Mewe14/P3Platypodes/issues)
+
 ## Key Features
 
 #### Signup/Login page with Users database
