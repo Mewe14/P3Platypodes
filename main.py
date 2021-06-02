@@ -30,7 +30,9 @@ def home():
 @app.route('/signup', methods=['GET','POST'])
 def signup():
     if request.method == 'POST':
-        return redirect(url_for("home"))
+        name = request.form.get('name')
+        username = request.form.get('username')
+        return render_template('realprofile.html', name=name, username=username)
     else:
         return render_template('signup.html')
 
@@ -40,6 +42,10 @@ def login():
         return redirect(url_for("home"))
     else:
         return render_template('login.html')
+
+# @app.route('/<username>')
+# def profile(name, username):
+    # return render_template('realprofile.html', name=name, username=username)
 
 
 @app.route('/minilabs')
@@ -70,9 +76,9 @@ def Responses():
     return render_template("Responses.html")
 
 
-@app.route('/profile')
-def profile():
-    return render_template("profile.html")
+# @app.route('/profile')
+# def profile():
+    # return render_template("profile.html")
 
 
 if __name__ == "__main__":
