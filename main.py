@@ -6,18 +6,16 @@ from classes.app import classes_bp
 from clubs.app import clubs_bp
 from minilab.app import minilab_bp
 from sports.app import sports_bp
-from gpa.app import gpacalculator_bp
 from algorithm.app import algorithm_bp
-
 
 app = Flask(__name__, template_folder="Templates")
 app.register_blueprint(classes_bp, url_prefix='/classes')
 app.register_blueprint(clubs_bp, url_prefix='/clubs')
+#app.register_blueprint(teachers_bp, url_prefix='/teachers')
 app.register_blueprint(sports_bp, url_prefix='/sports')
 app.register_blueprint(algorithm_bp, url_prefix='/algorithm')
-#app.register_blueprint(minilab_bp, url_prefix= '/minilab')
-app.register_blueprint(gpacalculator_bp, url_prefix='/gpa')
-
+app.register_blueprint(minilab_bp, url_prefix= '/minilab')
+#app.register_blueprint(manuelminilab_bp, url_prefix= '/manuelminilab')
 
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
@@ -32,7 +30,9 @@ def home():
 @app.route('/signup', methods=['GET','POST'])
 def signup():
     if request.method == 'POST':
-        return redirect(url_for("home"))
+        name = request.form.get('name')
+        username = request.form.get('username')
+        return render_template('realprofile.html', name=name, username=username)
     else:
         return render_template('signup.html')
 
@@ -42,6 +42,10 @@ def login():
         return redirect(url_for("home"))
     else:
         return render_template('login.html')
+
+# @app.route('/<username>')
+# def profile(name, username):
+    # return render_template('realprofile.html', name=name, username=username)
 
 
 @app.route('/minilabs')
@@ -63,14 +67,18 @@ def feedback():
 def process():
     return render_template("process.html")
 
-@app.route('/gpa', methods=['GET', 'POST'])
-def GPA():
-    return render_template("gpacalc.html")
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
 
 @app.route('/Responses/')
 def Responses():
     return render_template("Responses.html")
 
+
+# @app.route('/profile')
+# def profile():
+    # return render_template("profile.html")
 
 
 if __name__ == "__main__":

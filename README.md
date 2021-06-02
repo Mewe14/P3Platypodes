@@ -7,15 +7,22 @@ LinkDN is an aspiring social media site exclusive to Del Norte's students. Stude
 For now, clone our repository on your machine and run main.py. Website will be deployed ASAP. 
 
 [Project Plan](https://docs.google.com/document/d/1FGxx_jWIMwzBsvnnm7vjAKN-VX4sEd5dISR_Y26ovc8/edit)
+
+## Focus for this week
+
+Please view the "issues" section of this repository to look at what we're focusing on this week and what has been deployed. Here is a hyperlink:
+
+[Issues Page](https://github.com/Mewe14/P3Platypodes/issues)
+
 ## Key Features
 
 #### Signup/Login page with Users database
 
 Users will be able to create an account with personal data such as name, age, and graduating year, which will be stored in a database. They will then be able to sign into their accounts and view their unique profiles. 
 
-#### Profile page
+#### Profile page (Crystal Widjaja)
 
-Users will be able to view their personal profile page, which includes the data they provided when signing up for their accounts. They will also be able to augment information, such as GPA and recent awards. Profiles will be able to be viewed by other users. 
+Users will be able to view their personal profile page, which includes the data they provided when signing up for their accounts. They will also be able to augment information, such as GPA and recent awards. Profiles will be able to be viewed by other users. The profile page utilizes html and css for the front end. The backend is planned to use apis and routing to gather information from the signup page to the profile page.
 
 #### Friends feature
 
