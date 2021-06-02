@@ -28,6 +28,10 @@ Users will be able to view their personal profile page, which includes the data 
 
 Users will be able to reach out to other Del Norte students, perhaps through sending a small "This user wants to study with you!" message. 
 
+#### GPA calc (Sophie Bulkin)
+
+Users will be able to input both their classes and their grades earned in order to see their weighted and unweighted GPA. Additionally, I hope to add the ability for the user to see their class rank.
+
 ## Mini Lab 1
 
 #### Crystal's Classes Mini Lab
