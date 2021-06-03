@@ -28,6 +28,7 @@ Users will be able to view their personal profile page, which includes the data 
 
 Users will be able to reach out to other Del Norte students, perhaps through sending a small "This user wants to study with you!" message. 
 
+
 ## Mini Lab 1
 
 #### Crystal's Classes Mini Lab
