@@ -8,6 +8,7 @@ from minilab.app import minilab_bp
 from sports.app import sports_bp
 from algorithm.app import algorithm_bp
 
+
 app = Flask(__name__, template_folder="Templates")
 app.register_blueprint(classes_bp, url_prefix='/classes')
 app.register_blueprint(clubs_bp, url_prefix='/clubs')
@@ -66,6 +67,10 @@ def feedback():
 @app.route('/process')
 def process():
     return render_template("process.html")
+
+@app.route('/gpa')
+def gpa():
+    return render_template("gpacalc.html")
 
 @app.route('/contact')
 def contact():
