@@ -55,7 +55,7 @@ questions = [
 ]
 
 
-def quizdata():
+def quiz_data():
     return questions
 
 
