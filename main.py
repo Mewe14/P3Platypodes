@@ -5,6 +5,7 @@ import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
 from minilab.app import minilab_bp
+from quiz import quizdata
 from sports.app import sports_bp
 from algorithm.app import algorithm_bp
 
@@ -17,6 +18,7 @@ app.register_blueprint(sports_bp, url_prefix='/sports')
 app.register_blueprint(algorithm_bp, url_prefix='/algorithm')
 app.register_blueprint(minilab_bp, url_prefix= '/minilab')
 #app.register_blueprint(manuelminilab_bp, url_prefix= '/manuelminilab')
+
 
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
@@ -68,13 +70,17 @@ def feedback():
 def process():
     return render_template("process.html")
 
-@app.route('/gpa')
-def gpa():
-    return render_template("gpacalc.html")
 
 @app.route('/contact')
 def contact():
     return render_template("contact.html")
+
+@app.route('/quiz')
+def quiz():
+    return render_template("quiz.html",
+                           data=quizdata(),
+                           question_index=0,
+                           answers='{}')
 
 @app.route('/Responses/')
 def Responses():

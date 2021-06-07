@@ -1,20 +1,26 @@
+from query import query_colleges
+
 class Answer:
     def __init__(self, answer_index, answer_text):
         self.index = answer_index
         self.text = answer_text
+
+
 class Question:
     def __init__(self, index, question, answers):
         self.index = index
         self.question = question
         self.answers = answers
+
+
 questions = [
-    Question(1, "What is your GPA?",
-             [Answer(1, "4.0 +"),
-              Answer(2, "3.5"),
-              Answer(3, "3.0"),
-              Answer(4, "below 3.0")]),
+    Question(1, "What do you prefer the environment to be?",
+             [Answer(1, "City (Population: over 250,000)"),
+              Answer(2, "Suburb (Population: 100,000 - 250,000)"),
+              Answer(3, "Town (cluster 10 - 35 miles away from urban area)"),
+              Answer(4, "Rural (5 - 25 miles away from urban area)")]),
     Question(2, "What is your ideal location?",
-             [Answer(1, "California"),
+             [Answer(1, "New England (CT, ME, MA, NH, RI, VT)"),
               Answer(2, "Mid East (DE, DC, MD, NJ, NY, PA)"),
               Answer(3, "Great Lakes (IL, IN, MI, OH, WI)"),
               Answer(4, "Plains (IA, KS, MN, MO, NE, ND, SD)"),
@@ -29,10 +35,10 @@ questions = [
               Answer(3, "No Preference")]),
     Question(4, "What majors/areas of study are you most interested in?",
              [Answer(1, "STEM"),
-              Answer(2, "English/History/Business"),
+              Answer(2, "English/History/Business (LSA)"),
               Answer(3, "Fine Arts"),
-              Answer(4, "Research"),
-              Answer(5, "Pre-Law"),
+              Answer(4, "Research Focus"),
+              Answer(5, "Law"),
               Answer(6, "Not Applicable"),
               Answer(7, "Other/Undeclared")]),
     Question(5, "What degree are you looking to get in college?",
@@ -47,26 +53,13 @@ questions = [
               Answer(3, "Exclusively Graduate"),
               Answer(4, "Not Applicable")]),
 ]
-def quiz_data():
+
+
+def quizdata():
     return questions
+
+
 def handle_response(answers):
     print(answers)
-   # return query_colleges()
-    return "Thank you for your input!"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return query_colleges()
+    return "thank you!"
