@@ -1,5 +1,8 @@
-{% extends "navbar.html" %}
-{% block link1 %}
+<body>
+{% include 'nav.html' %}
+<p>hi</p>
+
+
 {% if question_index == data|length - 1 %}
 <form action="/submit" method="post">
     {% else %}
@@ -58,8 +61,8 @@
   .button {
     margin: 16px;
   }
+    </body>
 </style>
-    {% endblock %}
 
 
 

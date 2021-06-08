@@ -16,7 +16,7 @@ from minilab.app import minilab_bp
 from quiz import quiz_data
 from sports.app import sports_bp
 from algorithm.app import algorithm_bp
-
+from query import query_colleges
 
 app = Flask(__name__, template_folder="Templates")
 app.register_blueprint(classes_bp, url_prefix='/classes')
