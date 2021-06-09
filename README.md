@@ -16,13 +16,9 @@ Please view the "issues" section of this repository to look at what we're focusi
 
 ## Key Features
 
-#### Signup/Login page with Users database
+#### Signup/Login page with Users database / Profile Page (Crystal Widjaja)
 
-Users will be able to create an account with personal data such as name, age, and graduating year, which will be stored in a database. They will then be able to sign into their accounts and view their unique profiles. 
-
-#### Profile page (Crystal Widjaja)
-
-Users will be able to view their personal profile page, which includes the data they provided when signing up for their accounts. They will also be able to augment information, such as GPA and recent awards. Profiles will be able to be viewed by other users. The profile page utilizes html and css for the front end. The backend is planned to use apis and routing to gather information from the signup page to the profile page.
+Users will be able to view their personal profile page, which includes the data they provided when signing up for their accounts. They will also be able to augment information, such as GPA and recent awards. Profiles will be able to be viewed by other users. The profile page utilizes html and css for the front end. Front end work can be found through the signup.html, login.html, and profile.html. The backend is planned to use apis and routing to gather information from the signup page to the profile page. In order to create the backend, we linked our sign up page to a user API which stores the information for each new signup. This utilizes SQL Alchemy and Python Routing to successfully transfer the information. The information can be accessed through the settings.py, api.html, main.py, and custom.py for the backend. 
 
 #### About Page
 
