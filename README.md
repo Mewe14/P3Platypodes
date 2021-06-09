@@ -24,6 +24,10 @@ Users will be able to create an account with personal data such as name, age, an
 
 Users will be able to view their personal profile page, which includes the data they provided when signing up for their accounts. They will also be able to augment information, such as GPA and recent awards. Profiles will be able to be viewed by other users. The profile page utilizes html and css for the front end. The backend is planned to use apis and routing to gather information from the signup page to the profile page.
 
+#### About Page
+
+Users can connect with the creators of the website and see their minilabs from this trimester.
+
 #### Friends feature
 
 Users will be able to reach out to other Del Norte students, perhaps through sending a small "This user wants to study with you!" message. 
