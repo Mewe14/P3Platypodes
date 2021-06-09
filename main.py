@@ -1,11 +1,14 @@
+from flask import Flask, render_template, request
 
 from quiz import quiz_data
 
 from query import query_colleges
 
-from flask import Flask, render_template, request, redirect, url_for, session
+app = Flask(__name__)
+
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import text
+from flask import render_template, request, redirect, url_for
 import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
@@ -24,15 +27,6 @@ app.register_blueprint(algorithm_bp, url_prefix='/algorithm')
 app.register_blueprint(minilab_bp, url_prefix= '/minilab')
 #app.register_blueprint(manuelminilab_bp, url_prefix= '/manuelminilab')
 
-dbURI = 'sqlite:///models/myDB.db'
-
-""" database setup to support db examples """
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = dbURI
-db = SQLAlchemy(app)
-
-# set up the session
-app.secret_key = "According to all known laws of aviation, there is no way a bee should be able to fly."
 
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
@@ -44,91 +38,26 @@ db = SQLAlchemy(app)
 def home():
     return render_template('landing.html')
 
-@app.route('/login', methods=['POST', 'GET'])
-def login():
-    if request.method == "POST":
-        formUser = request.form["username"]  # using name as dictionary key
-        resultproxy = db.engine.execute(
-            text("SELECT * FROM users WHERE username=:username;").execution_options(autocommit=True),
-            username=formUser)
-
-        user = convert(resultproxy)
-
-        # troubleshooting
-        if user == False:
-            return render_template("login.html", error=True)
-
-        # set the user id
-        session.clear()
-        session["user_id"] = user["id"]
-
-        # redirects us to the user page
-        return redirect(url_for("user1", usr=user["username"]))
-    else:
-        return render_template("login.html", error=False)
-
-
-@app.route("/<usr>")
-def user1(usr):
-    # compute rows
-    resultproxy = db.engine.execute(
-        text("SELECT * FROM users WHERE username=:username;").execution_options(autocommit=True),
-        username=usr)
-
-    user = convert(resultproxy)
-    if user == False:
-        user = {'id': 404, 'username': 'iDontExist',
-                'hash': 'password hash',
-                'name': 'That user does not exist!', 'bio': "You probably typed a name in the search bar. The user "
-                                                            "you searched for either doesn't exist or deleted their "
-                                                            "account"}
-    return render_template("profile.html", user=user)
-
-
-@app.route('/newuser/', methods=["GET", "POST"])
-def new_user():
-    """Register user"""
-    if request.method == "POST":
-        # Make sure they put in their username
-        if not request.form.get("username"):
-            return apology("must provide username", 403)
-
-        # Make sure they put in a password
-        elif not request.form.get("password"):
-            return apology("must provide password", 403)
-
-        # Make sure the passwords match
-        elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("passwords must match", 403)
-
-        fullname = request.form.get("name")
-        print(request.form.get("bio") == '')
-
-        # Insert all the values into the database
-        db.engine.execute(
-            text("INSERT INTO users (username, hash, name, bio) VALUES (:user, :hash, :name, :bio);").execution_options(
-                autocommit=True),
-            user=request.form.get("username"),
-            hash=generate_password_hash(request.form.get("password")),
-            name=fullname, bio=request.form.get("bio"))
-
-        return redirect("/login")
-    else:
-        return render_template("signup.html")
-
-
-@app.route('/signup', methods=['POST', 'GET'])
+@app.route('/signup', methods=['GET','POST'])
 def signup():
-    if request.method == "POST":
-        newuser = request.form["newusername"]  # using name as dictionary key
-        # redirects us to the user page
-        return redirect(url_for("newuser", newusr=newuser))
+    if request.method == 'POST':
+        name = request.form.get('name')
+        username = request.form.get('username')
+        return render_template('profile.html', name=name, username=username)
     else:
-        return render_template("login.html")
+        return render_template('signup.html')
 
-from custom import apology, convert
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return redirect(url_for("home"))
+    else:
+        return render_template('login.html')
 
-app = Flask(__name__)
+# @app.route('/<username>')
+# def profile(name, username):
+# return render_template('realprofile.html', name=name, username=username)
+
 
 @app.route('/minilabs')
 def Minilabs():
@@ -182,14 +111,10 @@ def submit():
     colleges = query_colleges(request.form['answers'])
     return render_template("results.html", colleges=colleges)
 
-@app.route('/profile/')
-def profile():
-    # compute rows
-    resultproxy = db.engine.execute(text("SELECT * FROM users WHERE id=:id;").execution_options(autocommit=True),
-                                    id=session["user_id"])
 
-    user = convert(resultproxy)
-    return render_template("profile.html", user=user)
+# @app.route('/profile')
+# def profile():
+# return render_template("profile.html")
 
 
 if __name__ == "__main__":
