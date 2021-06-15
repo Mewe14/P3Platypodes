@@ -1,9 +1,8 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, session
 
 app = Flask(__name__)
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import text
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, g
 import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
@@ -12,9 +11,6 @@ from quiz import quiz_data
 from sports.app import sports_bp
 from algorithm.app import algorithm_bp
 from query import query_colleges
-from custom import apology, convert
-from werkzeug.security import generate_password_hash
-
 
 app = Flask(__name__, template_folder="Templates")
 app.register_blueprint(classes_bp, url_prefix='/classes')
@@ -29,110 +25,107 @@ app.register_blueprint(minilab_bp, url_prefix= '/minilab')
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_file = "sqlite:///{}".format(os.path.join(project_dir, "userprofiles.db"))
+app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 db = SQLAlchemy(app)
 
+'''app secret key'''
+app.secret_key = 'nighthawks'
+
+''' table definitions '''
+
+
+class User(db.Model):
+    userid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String(255), unique=True, nullable=False)
+    passwd = db.Column(db.String(255), unique=True, nullable=False)
+    firstname = db.Column(db.String(255), nullable=False)
+    lastname = db.Column(db.String(255), nullable=False)
+    email_address = db.Column(db.String(255), unique=True, nullable=True)
+    gender = db.Column(db.String(10), unique=False, nullable=True)
+    age = db.Column(db.Integer, unique=False, nullable=True)
+    dob = db.Column(db.DateTime, unique=False, nullable=True)
+
+    def __repr__(self):
+        return '<User %r>' % self.username
+
+@app.before_request
+def before_request():
+    g.user = None
+    if 'user' in session:
+        g.user = session['user']
+
 @app.route('/')
-def home():
-    return render_template('landing.html')
+def index():
+    return render_template("landing.html")
 
-@app.route('/login', methods=['POST', 'GET'])
-def login():
+
+# connects default URL of server to render home.html
+@app.route('/signup', methods=["GET", "POST"])
+def landing_page():
+    users = None
+    if request.form:
+        try:
+            """prepare data for primary table extracting from form"""
+            user = User(username=request.form.get("username"), passwd=request.form.get("passwd"),
+                        firstname=request.form.get("firstName"), lastname=request.form.get("lastName"),
+                        email_address=request.form.get("email_address"), gender=request.form.get("gender"),
+                        age=request.form.get("age"))
+            db.session.add(user)
+            db.session.commit()
+            session.pop('user', None)
+            session['user'] = str(request.form['username'])
+        except Exception as e:
+            # print("failed to add user")
+            # print(e)
+            return ("Failed to add user. Please try again.")
+        return redirect(url_for('profile'))
+    users = User.query.all()
+    return render_template("signup.html", users=users)
+
+
+@app.route('/signin', methods=["GET", "POST"])
+def signin():
+    error = None
     if request.method == "POST":
-        formUser = request.form["username"]  # using name as dictionary key
-        resultproxy = db.engine.execute(
-            text("SELECT * FROM users WHERE username=:username;").execution_options(autocommit=True),
-            username=formUser)
-
-        user = convert(resultproxy)
-
-        # troubleshooting
-        if user == False:
-            return render_template("login.html", error=True)
-
-        # set the user id
-        session.clear()
-        session["user_id"] = user["id"]
-
-        # redirects us to the user page
-        return redirect(url_for("user1", usr=user["username"]))
-    else:
-        return render_template("login.html", error=False)
+        POST_USERNAME = str(request.form['username'])
+        POST_PASSWORD = str(request.form['password'])
+        # dbcommitsignup = User(POST_USERNAME = username, POST_PASSWORD = passwd)
+        # db.session.add(dbcommitsignup)
+        # db.session.commit()
+        result1 = User.query.filter(User.username == POST_USERNAME).first()
+        result2 = User.query.filter(User.passwd == POST_PASSWORD).first()
+        if result1 and result2:
+            session.pop('user', None)
+            session['user'] = POST_USERNAME
+            return redirect(url_for('profile'))
+        else:
+            error = "Invalid Credentials. Please try again."
+    return render_template("login.html", error=error)
 
 
-@app.route("/<usr>")
-def user1(usr):
-    # compute rows
-    resultproxy = db.engine.execute(
-        text("SELECT * FROM users WHERE username=:username;").execution_options(autocommit=True),
-        username=usr)
-
-    user = convert(resultproxy)
-    if user == False:
-        user = {'id': 404, 'username': 'iDontExist',
-                'hash': 'password hash',
-                'name': 'That user does not exist!', 'bio': "You probably typed a name in the search bar. The user "
-                                                            "you searched for either doesn't exist or deleted their "
-                                                            "account"}
-    return render_template("profile.html", user=user)
-
-
-@app.route('/newuser/', methods=["GET", "POST"])
-def new_user():
-    """Register user"""
-    if request.method == "POST":
-        # Make sure they put in their username
-        if not request.form.get("username"):
-            return apology("must provide username", 403)
-
-        # Make sure they put in a password
-        elif not request.form.get("password"):
-            return apology("must provide password", 403)
-
-        # Make sure the passwords match
-        elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("passwords must match", 403)
-
-        fullname = request.form.get("name")
-        print(request.form.get("bio") == '')
-
-        # Insert all the values into the database
-        db.engine.execute(
-            text("INSERT INTO users (username, hash, name, bio) VALUES (:user, :hash, :name, :bio);").execution_options(
-                autocommit=True),
-            user=request.form.get("username"),
-            hash=generate_password_hash(request.form.get("password")),
-            name=fullname, bio=request.form.get("bio"))
-
-        return redirect("/login")
-    else:
-        return render_template("signup.html")
-
-
-@app.route('/signup', methods=['POST', 'GET'])
-def signup():
-    if request.method == "POST":
-        newuser = request.form["newusername"]  # using name as dictionary key
-        # redirects us to the user page
-        return redirect(url_for("newuser", newusr=newuser))
-    else:
-        return render_template("signup.html")
-
+@app.route('/home')
+def home_route():
+    # function use Flask import (Jinja) to render an HTML template
+    if g.user:
+        return render_template("profile.html", user=session['user'])
+    return redirect(url_for('landing'))
 
 @app.route('/minilabs')
 def Minilabs():
     return render_template('minilabs.html')
 
-
 @app.route('/about')
 def about():
     return render_template("about.html")
-
 
 @app.route('/feedback')
 def feedback():
     return render_template("feedback.html")
 
+@app.route('/login')
+def login():
+    return render_template("login.html")
 
 @app.route('/process')
 def process():
@@ -170,17 +163,6 @@ def submit():
     print(request.form['answers'])
     colleges = query_colleges(request.form['answers'])
     return render_template("results.html", colleges=colleges)
-
-
-@app.route('/profile')
-def profile():
-    # compute rows
-    resultproxy = db.engine.execute(text("SELECT * FROM users WHERE id=:id;").execution_options(autocommit=True),
-                                    id=session["user_id"])
-
-    user = convert(resultproxy)
-    return render_template("profile.html", user=user)
-
 
 
 if __name__ == "__main__":
