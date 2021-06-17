@@ -1,6 +1,69 @@
 {% include 'nav.html' %}
 
-<h3>Contact Form</h3>
+<style>
+    body  {
+        background-image: url('/static/light.jpg'); background-size: cover;
+    }
+            body {font-family: times new roman}
+        * {box-sizing: border-box;}
+
+        .form-inline {
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+        }
+
+        .form-inline label {
+          margin: 5px 10px 5px 0;
+        }
+
+        .form-inline input {
+          vertical-align: middle;
+          margin: 5px 10px 5px 0;
+          padding: 10px;
+          background-color: #fff;
+          border: 1px solid #ddd;
+        }
+
+        .form-inline button:hover {
+          background-color: royalblue;
+        }
+
+        @media (max-width: 800px) {
+          .form-inline input {
+            margin: 10px 0;
+          }
+
+          .form-inline {
+            flex-direction: column;
+            align-items: stretch;
+          }
+        }
+    h1 {
+  color: black;
+  font-family: times new roman;
+  font-size: 300%;
+  text-align: center;
+    }
+
+     h3 {
+  color: black;
+  font-family: times new roman;
+    }
+    h2 {
+  color: black;
+  font-family: times new roman;
+  font-size: 200%;
+  text-align: left;
+    }
+    h4 {
+  color: red;
+  font-family: times new roman;
+  font-size: 130%;
+    }
+    </style>
+
+<h1>Feedback Form</h1>
 
 <div class="container">
     <form action="/Responses/">
@@ -17,9 +80,8 @@
             <option value="11">11</option>
             <option value="12">12</option>
         </select>
-
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Which subject do you feel you are the strongest in?" style="height:200px"></textarea>
+        <label for="subject">Feedback</label>
+        <textarea id="subject" name="subject" placeholder="What feedback would you like to provide us with?" style="width: 500px;"></textarea>
 
         <input type="submit" value="Submit">
     </form>
