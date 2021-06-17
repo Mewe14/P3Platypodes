@@ -226,19 +226,19 @@ Here is some example code of one of our creators in the about us page:
             <iframe src="https://docs.google.com/document/d/1jMtzi4i17i17SYjVa3cnJK06rem81XqqCBozq5FvPXc/edit" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></iframe>
         </div>
        # <h2>Contact Manuel through e-mail!</h2>
-        <form action="mailto:mvvillah@icloud.com" method="post" enctype="text/plain">
-             <br>
+        #<form action="mailto:mvvillah@icloud.com" method="post" enctype="text/plain">
+           #  <br>
             #<input type="text" name=" "><br>
-            Name:<br>
+            #Name:<br>
            # <input type="text" name="name"><br>
-            E-mail:<br>
+           # E-mail:<br>
            # <input type="text" name="mail"><br>
-            Comment:<br>
-            <input type="text" name="comment" size="50"><br><br>
-            <input type="submit" value="Send">
-            <input type="reset" value="Reset">
-        </form>
-    </section>
+            #Comment:<br>
+           # <input type="text" name="comment" size="50"><br><br>
+            #<input type="submit" value="Send">
+            #<input type="reset" value="Reset">
+       # </form>
+   # </section>
 
     
 
