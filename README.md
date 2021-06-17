@@ -30,7 +30,7 @@ Quality and Usability of Project
 
 ReadMe / Scrum Board (+2)
 
-[Commercial Video](https://drive.google.com/file/d/1KzIIv0PQS8jvkRK5vpM-3B1V_W-kCkjw/view?usp=sharing) (+3)
+Commercial Video (+3)
 
 ### +5 Individual Grading
 Crystal 4.5/5 --> Labs: Bubble Sort and Binary Search    Technicals:Login page, Sign Up Page, Styling for Quiz Page, User API, Classes (+2.5)
@@ -112,6 +112,52 @@ Users can connect with the creators of the website and see their minilabs from t
 5. My WOW factor is displaying the class objects using a for loop and accessing their attributes via html/Jinja, specifically in how I link the featured clubs' websites. This project gave me insight into how blueprints can assist in compartmentalizing code, as well as the use of classes when I will eventually be managing a much larger data set.
 #### Sophie's Classes Mini Lab
 The wow factor is displaying both the greatest common denominator and least common multiple each time you change a and b, having it visible on the website and knowing how to include mathematical algorithms in my project. The first binary point of using an individual blueprint for my scrum team project can be shown through the minilabs. html file where I set up a table for each group members code to be organized. My blueprints can also be found in the administration directory. The second binary point says to define a class to manage a complex data set, which is shown in line 4 of the code where I define a class as Least Common Multiple. The third binary point comes from creating an object from a class in python, which is shown in line 31 which creates a class object. The 4th binary point comes from displaying data using getters which is shown in lines 19 and 23 when I write @property.  </h2>
+
+## Sophie's Bubble Sort Mini Lab
+The purpose of the bubble sort mini lab is to create a bubble sort which swaps different elements if they are in the wrong order in order to educate the target audience of young children how to correctly sort numbers. When you press the submit button, it generates an output with the information that you inputted in the correct numerical order. The input is entering the a list of numbers, and the output is the same numbers being laid out in numerical order. 
+This code shows how the data from the list that was created is being used:
+ from math import gcd
+
+        class LeastCommonMultiple: ##this is where I define a class
+
+            def __init__(self, a,b):
+                self._multiple = self.lcm()
+                self._denominator = self.gcd()
+
+            def gcd(self):
+                if a == 0:
+                    return b
+                return gcd(b % a, a)
+
+            # Function to return LCM of two numbers
+            def lcm(self):
+                return (a / gcd(a,b))* b
+
+            @property
+            def leastcommon_multiple(self):
+                return self._multiple
+
+            @property
+            def denominator(self):
+                return self._denominator
+
+The data contained in the list represents the information that will be tested in the driver code in order to print a sorted array. The List generates the the information inputted in numerical order based on what they entered, the sorty  parameter sets restrictions to the algorithm. 
+The way that the algorithm works is that bubble has 2 parameters, value and sorty. Beneath the class, we have constructed and initiated a series. We then define the parameter sirt which sets restrictions to the algorithm. The class bubble is where the algorithm builds the series. If the user inputs a list of numbers into the textbox field separated by a comma, it will output a list of numbers that follow the conditions that these two parameters have setup. It will then give the values in the correct order for the information that the user inputted. The bubble sort does this by comparing two elements at a time, and if one is greater than the other, it will switch the elements. This process repeats with each element until they’re in the proper order
+
+    def bubbleSort(value_1):
+        n = len(value_1)-3
+        value_sorty = value_1
+        arr = value_sorty.split(',')
+        value = arr
+
+        # Traverse through all array elements
+        for i in range(n):
+            # Last i elements are already in place
+            for j in range(0, n-i-1):
+                if value[j] > value[j+1]:
+                    value[j], value[j+1] = value[j+1], value[j]
+
+It will test what information the user is inputting and pass the values through the correct algorithm in order to produce a value in the correct order and range. It tests what information could be processed by the algorithm according to the input of numbers by the user
 
 ## Feedback Page (Made by Sophie)
 In order to create the feedback page, we used a Jinja template and formatted it so that the user could input their information and give the creators imput on how we could better format the website so that it easier to navigate and use. The Jinja template allows us to customize tests and quizzes. It also allows the website designer to call functions with arguments. We allowed the user to give us background into who they are so we could better get an understanding of who are audience is.
