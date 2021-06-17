@@ -1,7 +1,7 @@
 <body>
 {% include 'nav.html' %}
 
-<h2>Contact us through e-mail!</h2>
+<h1>Contact us through e-mail!</h1>
 
 <form action="mailto:arul.salaniwal@gmail.com" method="post" enctype="text/plain">
     Name:<br>
@@ -15,3 +15,68 @@
 </form>
 
 </body>
+<style>
+    body  {
+        background-image: url('/static/green2.jpg'); background-size: cover;
+    }
+            body {font-family: times new roman}
+        * {box-sizing: border-box;}
+
+        .form-inline {
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+        }
+
+        .form-inline label {
+          margin: 5px 10px 5px 0;
+        }
+
+        .form-inline input {
+          vertical-align: middle;
+          margin: 5px 10px 5px 0;
+          padding: 10px;
+          background-color: #fff;
+          border: 1px solid #ddd;
+        }
+
+        .form-inline button:hover {
+          background-color: royalblue;
+        }
+
+        @media (max-width: 800px) {
+          .form-inline input {
+            margin: 10px 0;
+          }
+
+          .form-inline {
+            flex-direction: column;
+            align-items: stretch;
+          }
+        }
+    h1 {
+  color: black;
+  font-family: times new roman;
+  font-size: 300%;
+  text-align: center;
+    }
+
+     h3 {
+  color: black;
+  font-family: times new roman;
+    }
+    h2 {
+  color: black;
+  font-family: times new roman;
+  font-size: 200%;
+  text-align: left;
+    }
+    h4 {
+  color: red;
+  font-family: times new roman;
+  font-size: 130%;
+    }
+    form {
+    padding: 8px;
+  }
+    </style>
