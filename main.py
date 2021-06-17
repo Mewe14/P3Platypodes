@@ -12,7 +12,7 @@ from sports.app import sports_bp
 from algorithm.app import algorithm_bp
 from query import query_colleges
 
-app = Flask(__name__, template_folder="Templates")
+
 app.register_blueprint(classes_bp, url_prefix='/classes')
 app.register_blueprint(clubs_bp, url_prefix='/clubs')
 #app.register_blueprint(teachers_bp, url_prefix='/teachers')
@@ -25,7 +25,6 @@ app.register_blueprint(minilab_bp, url_prefix= '/minilab')
 ''' database setup  '''
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_file = "sqlite:///{}".format(os.path.join(project_dir, "userprofiles.db"))
-app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 db = SQLAlchemy(app)
 
