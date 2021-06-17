@@ -30,7 +30,7 @@ Quality and Usability of Project
 
 ReadMe / Scrum Board (+2)
 
-Commercial Video (+3)
+[Commercial Video](https://drive.google.com/file/d/1KzIIv0PQS8jvkRK5vpM-3B1V_W-kCkjw/view?usp=sharing) (+3)
 
 ### +5 Individual Grading
 Crystal 4.5/5 --> Labs: Bubble Sort and Binary Search    Technicals:Login page, Sign Up Page, Styling for Quiz Page, User API, Classes (+2.5)
