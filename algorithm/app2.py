@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from minilab.testing import sophiebubble
+from algorithm.testing import sophiebubble
 
 minilab_bp=Blueprint('minilab_bp',__name__,
 

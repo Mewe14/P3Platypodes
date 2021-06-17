@@ -6,7 +6,7 @@ from flask import render_template, request, redirect, url_for, g
 import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
-from minilab.app import minilab_bp
+from algorithm.app2 import minilab_bp
 from quiz import quiz_data
 from sports.app import sports_bp
 from algorithm.app import algorithm_bp
