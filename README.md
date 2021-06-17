@@ -130,7 +130,9 @@ def query_colleges(answers):
     for row in conn.execute(query):
         # print(row)
         result.append(row)
+
     return result
+
     
 
 ## Creators
