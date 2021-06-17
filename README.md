@@ -24,6 +24,8 @@ Commercial Video (+3)
 
 ### +5 Individual Grading
 Crystal 4.5/5 --> Labs: Bubble Sort and Binary Search    Technicals:Login page, Sign Up Page, Styling for Quiz Page, User API, Classes (+2.5)
+
+
 Sophie 4/5 --> Labs: Finding the LCM/GCD of two integers and Bubble Sort/explanation of how bubble sort works (+2)      Technicals: Quiz Page/Api, Feedback page, Individual page, About page/styling (+2)
 
 
@@ -48,10 +50,6 @@ Users will be able to view their personal profile page, which includes the data 
 #### About Page
 
 Users can connect with the creators of the website and see their minilabs from this trimester.
-
-#### Friends feature
-
-Users will be able to reach out to other Del Norte students, perhaps through sending a small "This user wants to study with you!" message. 
 
 
 ## Mini Lab 1
