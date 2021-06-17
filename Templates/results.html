@@ -1,0 +1,55 @@
+{% extends "navbar.html" %}
+
+{% block link1 %}
+
+<div class="content">
+    <h3>Thank you for the responses!</h3>
+    <p>
+        Here's the list of colleges you might consider applying
+    </p>
+    <!--  {{ colleges }}-->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Type</th>
+        </tr>
+        {% for college in colleges %}
+        <tr>
+            <td><a href="//{{ college[3] }}">{{ college[0] }}</a></td>
+            <td>{{ college[2] }}</td>
+            <td>{{ college[1] }}</td>
+            <td>
+                {% if college[4] == 1 %}
+                Public
+                {% else %}
+                Private
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<style>
+
+  .content {
+    padding-left: 32px;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table, td, th {
+    border: 1px solid black;
+  }
+
+  td, th {
+    padding: 8px;
+  }
+
+</style>
+
+{% endblock %}

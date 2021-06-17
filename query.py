@@ -9,9 +9,11 @@ crs = conn.cursor()
 
 # def construct_query(region, locale)
 
-#for row in conn.execute("select name, city, state, url, locale, carnegie_basic from schools where city in ('Denver', "
-                       # "'Aurora') and carnegie_basic < 12"):
-    #print(row)
+"""
+for row in conn.execute("select name, city, state, url, locale, carnegie_basic from schools where city in ('Denver', "
+                        "'Aurora') and carnegie_basic < 12"):
+    print(row)
+"""
 
 
 def where_locale(answer):
