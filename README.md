@@ -114,9 +114,6 @@ In order to create this quiz page I first picked an API that would give the user
 
 this shows important code for getting the results:
 
-     return ""
-
-
 def query_colleges(answers):
     conn = sqlite3.connect('schools.db')
     answers_json = json.loads(answers)
