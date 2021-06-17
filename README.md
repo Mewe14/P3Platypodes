@@ -212,6 +212,33 @@ def query_colleges(answers):
 
     return result
 
+#### Manuel's Classes Mini Lab
+The wow factor is displaying both x and y values that satisfy the equation ax + by = n, having it visible on the website and knowing how to include mathematical algorithms in my project. The first binary point of using an individual blueprint for my scrum team project can be shown through the minilabs.  The second binary point says to define a class to manage a complex data set, which is shown in the code where I define a class as Solution. The third binary point comes from creating an object from a class in python. The 4th binary point comes from displaying data which is shown by outputting the x and y that satisfy the equation, or it outputs "no solution".  </h2>
+
+## About us Page (Made by Manuel)
+The about us page was created using python and css to style it, we added the ability to embed journals into the page so that users can learn more about the creators of the website, we also added the ability to contact each creator via email and has a navbar so the user can find each person quickly and easily.
+
+Here is some example code of one of our creators in the about us page:
+
+<section id="manuel" style="w3-cyan width:100%">
+        <div align="center" style="w3-cyan width:100%" >
+            <h5 class="w3-center w3-padding-5" style="font-family:Roboto; font-size: 40px" ><span class="w3-tag w3-green">MANUEL</span></h5>
+            <iframe src="https://docs.google.com/document/d/1jMtzi4i17i17SYjVa3cnJK06rem81XqqCBozq5FvPXc/edit" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></iframe>
+        </div>
+        <h2>Contact Manuel through e-mail!</h2>
+        <form action="mailto:mvvillah@icloud.com" method="post" enctype="text/plain">
+             <br>
+            <input type="text" name=" "><br>
+            Name:<br>
+            <input type="text" name="name"><br>
+            E-mail:<br>
+            <input type="text" name="mail"><br>
+            Comment:<br>
+            <input type="text" name="comment" size="50"><br><br>
+            <input type="submit" value="Send">
+            <input type="reset" value="Reset">
+        </form>
+    </section>
 
     
 
