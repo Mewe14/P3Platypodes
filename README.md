@@ -83,9 +83,54 @@ The wow factor is displaying both the greatest common denominator and least comm
 ## Feedback Page (Made by Sophie)
 In order to create the feedback page, we used a Jinja template and formatted it so that the user could input their information and give the creators imput on how we could better format the website so that it easier to navigate and use. The Jinja template allows us to customize tests and quizzes. It also allows the website designer to call functions with arguments. We allowed the user to give us background into who they are so we could better get an understanding of who are audience is.
 
+This shows the format for making the jinja template:
+<h1>Feedback Form</h1>
+
+<div class="container">
+    <form action="/Responses/">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="first name..">
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="last name..">
+
+        <label for="Grade">Grade</label>
+        <select id="grade" name="grade">
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+        <label for="subject">Feedback</label>
+        <textarea id="subject" name="subject" placeholder="What feedback would you like to provide us with?" style="width: 500px;"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
 ## Quiz Page (Made by Sophie)
 In order to create this quiz page I first picked an API that would give the user insight into what college would be best suited for them since the main purpose of our website is to help DN students with their educational careers. We dowloaded the API locally and query'd the database with static endpoints sothat the user would input answers to the quiz questions and get a list of possible colleges that is in accordance with the answers they chose. I used one template and repopulated that template with different questions, instead of creating a new page everytime the user moves on. I did this by creating routes, and each button is a route, so every time you press the next different, a new set of data is filtered through the template. The output gives links to colleges that the quiz determined are good for you in order to provide more information so that the user can make the most informed decisions possible.
-2ee87f0c9d91153c7c902e31908a09ffdadd2b79
+
+this shows important code for getting the results:
+def query_colleges(answers):
+    conn = sqlite3.connect('schools.db')
+    answers_json = json.loads(answers)
+    print(answers_json)
+    where = where_locale(answers_json['0']) + " and " + \
+            where_state(answers_json['1']) + " and " + \
+            where_carnegie_basic(answers_json['4']) + " and " + \
+            where_ownership(answers_json['2']) + " and " + \
+            where_carnegie_undergrad(answers_json['5'])
+    query = "select name, city, state, url, ownership from schools" \
+            " where " + where
+    print(query)
+    result = []
+    for row in conn.execute(query):
+        # print(row)
+        result.append(row)
+
+    return result
+    
 
 ## Creators
 
