@@ -31,9 +31,13 @@ db = SQLAlchemy(app)
 '''app secret key'''
 app.secret_key = 'nighthawks'
 
-''' table definitions '''
+
+@app.route('/')
+def index():
+    return render_template("landing.html")
 
 
+'''
 class User(db.Model):
     userid = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(255), unique=True, nullable=False)
@@ -53,11 +57,6 @@ def before_request():
     g.user = None
     if 'user' in session:
         g.user = session['user']
-
-@app.route('/')
-def index():
-    return render_template("landing.html")
-
 
 # connects default URL of server to render home.html
 @app.route('/signup', methods=["GET", "POST"])
@@ -81,10 +80,10 @@ def landing_page():
         return redirect(url_for('profile'))
     users = User.query.all()
     return render_template("signup.html", users=users)
+'''
 
-
-@app.route('/signin', methods=["GET", "POST"])
-def signin():
+@app.route('/login', methods=["GET", "POST"])
+def login():
     error = None
     if request.method == "POST":
         POST_USERNAME = str(request.form['username'])
@@ -122,9 +121,9 @@ def about():
 def feedback():
     return render_template("feedback.html")
 
-@app.route('/login')
-def login():
-    return render_template("login.html")
+@app.route('/signup')
+def signup():
+    return render_template("signup.html")
 
 @app.route('/process')
 def process():
