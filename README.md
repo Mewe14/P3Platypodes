@@ -84,6 +84,7 @@ The wow factor is displaying both the greatest common denominator and least comm
 In order to create the feedback page, we used a Jinja template and formatted it so that the user could input their information and give the creators imput on how we could better format the website so that it easier to navigate and use. The Jinja template allows us to customize tests and quizzes. It also allows the website designer to call functions with arguments. We allowed the user to give us background into who they are so we could better get an understanding of who are audience is.
 
 This shows the format for making the jinja template:
+
 <h1>Feedback Form</h1>
 
 <div class="container">
