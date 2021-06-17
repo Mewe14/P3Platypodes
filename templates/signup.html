@@ -1,5 +1,68 @@
 {% include 'nav.html' %}
 
+<style>
+    body  {
+        background-image: url('/static/green4.jpg'); background-size: cover;
+    }
+            body {font-family: times new roman}
+        * {box-sizing: border-box;}
+
+        .form-inline {
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+        }
+
+        .form-inline label {
+          margin: 5px 10px 5px 0;
+        }
+
+        .form-inline input {
+          vertical-align: middle;
+          margin: 5px 10px 5px 0;
+          padding: 10px;
+          background-color: #fff;
+          border: 1px solid #ddd;
+        }
+
+        .form-inline button:hover {
+          background-color: royalblue;
+        }
+
+        @media (max-width: 800px) {
+          .form-inline input {
+            margin: 10px 0;
+          }
+
+          .form-inline {
+            flex-direction: column;
+            align-items: stretch;
+          }
+        }
+    h1 {
+  color: black;
+  font-family: times new roman;
+  font-size: 300%;
+  text-align: center;
+    }
+
+     h3 {
+  color: black;
+  font-family: times new roman;
+    }
+    h2 {
+  color: black;
+  font-family: times new roman;
+  font-size: 200%;
+  text-align: left;
+    }
+    h4 {
+  color: red;
+  font-family: times new roman;
+  font-size: 130%;
+    }
+    </style>
+
 <div class="container">
     <h1>SIGN UP</h1>
     <!-- Sign in Form -->
