@@ -144,7 +144,7 @@ def quiz():
 
 @app.route('/Responses/')
 def Responses():
-    return render_template("Responses.html")
+    return render_template("responses.html")
 
 @app.route('/next', methods=['POST'])
 def next_question():

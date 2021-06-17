@@ -1,13 +1,12 @@
-{% extends "navbar.html" %}
-
-{% block link1 %}
+<body>
+{% include "nav.html" %}
 
 <div class="content">
     <h3>Thank you for the responses!</h3>
     <p>
         Here's the list of colleges you might consider applying
     </p>
-    <!--  {{ colleges }}-->
+<!--     {{ colleges }}-->
     <table>
         <tr>
             <th>Name</th>
@@ -31,6 +30,8 @@
         {% endfor %}
     </table>
 </div>
+</body>
+
 
 <style>
 
@@ -50,6 +51,7 @@
     padding: 8px;
   }
 
+</body>
+
 </style>
 
-{% endblock %}
