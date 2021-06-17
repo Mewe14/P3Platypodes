@@ -85,6 +85,7 @@ In order to create the feedback page, we used a Jinja template and formatted it 
 
 ## Quiz Page (Made by Sophie)
 In order to create this quiz page I first picked an API that would give the user insight into what college would be best suited for them since the main purpose of our website is to help DN students with their educational careers. We dowloaded the API locally and query'd the database with static endpoints sothat the user would input answers to the quiz questions and get a list of possible colleges that is in accordance with the answers they chose. I used one template and repopulated that template with different questions, instead of creating a new page everytime the user moves on. I did this by creating routes, and each button is a route, so every time you press the next different, a new set of data is filtered through the template. The output gives links to colleges that the quiz determined are good for you in order to provide more information so that the user can make the most informed decisions possible.
+2ee87f0c9d91153c7c902e31908a09ffdadd2b79
 
 ## Creators
 
