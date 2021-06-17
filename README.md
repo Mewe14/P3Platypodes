@@ -5,21 +5,31 @@ LinkDN is an aspiring social media site exclusive to Del Norte's students. Stude
 ## Final Grading
 
 #### +5 Theme Section (No Login or Easy Guest access) 5/5
+
 Theme Colors: Blue and Green / Themed to be like LinkedIn
+
 Technicals: Sign Up Page, Login Page, About Page, Sophie’s Minilab, Classes Page, Club Page (+3)
+
 Interactions: College Quiz Page, Contact Page, Feedback Page (+1.5)
+
 Creative: College Quiz, About Us Page (+2)
 
 #### +5 API Section 5/5
 API used for the college quiz 
+
 Crossed over with Team Parrots who helped us set up the APIs
+
 Utilized their same school API +2
+
 Created our own user profiles API +2
+
 Style with CSS (+1)
 
 #### +5 Deployment Section 5/5
 Quality and Usability of Project
+
 ReadMe / Scrum Board (+2)
+
 Commercial Video (+3)
 
 ### +5 Individual Grading
