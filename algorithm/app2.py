@@ -1,15 +1,23 @@
 from flask import Blueprint, render_template, request
 from algorithm.testing import sophiebubble
+from flask import Flask
 
-minilab_bp=Blueprint('minilab_bp',__name__,
+#minilab_bp=Blueprint('minilab_bp',__name__,
 
-                     template_folder = 'templates',
-                     static_folder='static', static_url_path='assets')
+                    # template_folder = 'templates',
+                     #static_folder='static', static_url_path='assets')
+
+algorithm_bp = Blueprint('algorithm', __name__,
+                         template_folder='../algorithm/templates',
+                         static_folder='static', static_url_path='assets')
+
+algorithm = Flask(__name__)
 
 
 
-@minilab_bp.route('/testing' , methods=['GET', 'POST'])
-def testingminilab():
+
+@algorithm_bp.route('/' , methods=['GET', 'POST'])
+def testing():
     sorty = 0
     list = ""
 
@@ -19,5 +27,5 @@ def testingminilab():
         sorty = k.sorty_original(value)
         list = k.bubbleSort(value)
 
-        return render_template("/minilab/testpage.html", sorty=sorty, list=list)
+        return render_template("/algorithm/testpage.html", sorty=sorty, list=list)
 

@@ -6,7 +6,7 @@ from flask import render_template, request, redirect, url_for, g
 import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
-from algorithm.app2 import minilab_bp
+from algorithm.app2 import algorithm_bp
 from quiz import quiz_data
 from sports.app import sports_bp
 from algorithm.app import algorithm_bp
@@ -18,7 +18,7 @@ app.register_blueprint(clubs_bp, url_prefix='/clubs')
 #app.register_blueprint(teachers_bp, url_prefix='/teachers')
 app.register_blueprint(sports_bp, url_prefix='/sports')
 app.register_blueprint(algorithm_bp, url_prefix='/algorithm')
-app.register_blueprint(minilab_bp, url_prefix= '/minilab')
+app.register_blueprint(algorithm_bp, url_prefix= '/algorithm')
 #app.register_blueprint(manuelminilab_bp, url_prefix= '/manuelminilab')
 
 
@@ -109,9 +109,9 @@ def home_route():
         return render_template("profile.html", user=session['user'])
     return redirect(url_for('landing'))
 
-@app.route('/minilabs')
-def Minilabs():
-    return render_template('minilabs.html')
+#@app.route('/minilabs')
+#def Minilabs():
+    #return render_template('minilabs.html')
 
 @app.route('/about')
 def about():
