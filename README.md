@@ -162,6 +162,12 @@ The way that the algorithm works is that bubble has 2 parameters, value and sort
 
 It will test what information the user is inputting and pass the values through the correct algorithm in order to produce a value in the correct order and range. It tests what information could be processed by the algorithm according to the input of numbers by the user
 
+## Crystal's Bubble Sort and Binary Search Mini Lab
+
+The overall purpose of the program is to teach students about bubble sort and binary search in an interactive way. We do this by allowing students to input 5 unique numbers and by picking one of the numbers to search for. From then, the website gives a basic summary of how each of the algorithms work using the inserted numbers. This allows the students to interact with the algorithms and creates a more immersive learning experience for the user. Additionally, the website utilizes color coding to helps students identify the different parts of the binary search algorithm. The inputs, as described previously, come in the form of boxes in which the user can insert values via keyboard or with the arrows on the side. The output is the ordered list created by the bubble sort and the correct position of the selected searched number via the binary search. Link to code [here](hhttps://github.com/Mewe14/P3Platypodes/blob/main/classes/create.py)
+
+
+
 ## Feedback Page (Made by Sophie)
 In order to create the feedback page, we used a Jinja template and formatted it so that the user could input their information and give the creators imput on how we could better format the website so that it easier to navigate and use. The Jinja template allows us to customize tests and quizzes. It also allows the website designer to call functions with arguments. We allowed the user to give us background into who they are so we could better get an understanding of who are audience is.
 
