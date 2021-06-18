@@ -38,7 +38,7 @@ Crystal 4.5/5 --> Labs: Bubble Sort and Binary Search    Technicals:Login page, 
 
 Sophie 4/5 --> Labs: Finding the LCM/GCD of two integers and Bubble Sort/explanation of how bubble sort works (+2)      Technicals: Quiz Page/Api, Feedback page, Individual page, About page/styling (+2)
 
-Sophie 3/5 --> Labs: Finding the X and Y that satisfy the equation ax + by = n/ bubble sort (+2)      Technicals: About us page, nav bar, About page/styling (+1)
+Manuel 3/5 --> Labs: Finding the X and Y that satisfy the equation ax + by = n/ bubble sort (+2)      Technicals: About us page, nav bar, About page/styling (+1)
 
 Ida 3.5/5 --> Labs: Bubble sort, Classes lab implemented in Clubs page (+2); Technicals: Deployment via Mr M's hardware; Organization of blueprints and routes; Mostly front-end work in login/signup, updated nav bar, and implementing Boostrap (+1.5) 
 
