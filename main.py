@@ -2,7 +2,7 @@ from flask import Flask, session
 
 app = Flask(__name__)
 from flask_sqlalchemy import SQLAlchemy
-from flask import render_template, request, redirect, url_for, g
+from flask import render_template, request, redirect, url_for, g, flash
 import os
 from classes.app import classes_bp
 from clubs.app import clubs_bp
@@ -23,11 +23,14 @@ app.register_blueprint(algorithm_bp, url_prefix= '/algorithm')
 
 
 ''' database setup  '''
-project_dir = os.path.dirname(os.path.abspath(__file__))
-database_file = "sqlite:///{}".format(os.path.join(project_dir, "userprofiles.db"))
-app.config["SQLALCHEMY_DATABASE_URI"] = database_file
-db = SQLAlchemy(app)
+# project_dir = os.path.dirname(os.path.abspath(__file__))
+# database_file = "sqlite:///{}".format(os.path.join(project_dir, "userprofiles.db"))
+# app.config["SQLALCHEMY_DATABASE_URI"] = database_file
+# db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+db = SQLAlchemy(app)
 '''app secret key'''
 app.secret_key = 'nighthawks'
 
@@ -37,69 +40,55 @@ def index():
     return render_template("landing.html")
 
 
-'''
+
 class User(db.Model):
-    userid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    _id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(255), unique=True, nullable=False)
-    passwd = db.Column(db.String(255), unique=True, nullable=False)
-    firstname = db.Column(db.String(255), nullable=False)
-    lastname = db.Column(db.String(255), nullable=False)
-    email_address = db.Column(db.String(255), unique=True, nullable=True)
-    gender = db.Column(db.String(10), unique=False, nullable=True)
-    age = db.Column(db.Integer, unique=False, nullable=True)
-    dob = db.Column(db.DateTime, unique=False, nullable=True)
+    passwd = db.Column(db.String(255), nullable=False)
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return f"User('{self.username}')"
 
-@app.before_request
-def before_request():
-    g.user = None
-    if 'user' in session:
-        g.user = session['user']
+@app.route('/register')
+def register():
+    return render_template("signup.html")
+
 
 # connects default URL of server to render home.html
 @app.route('/signup', methods=["GET", "POST"])
 def landing_page():
-    users = None
-    if request.form:
-        try:
-            """prepare data for primary table extracting from form"""
-            user = User(username=request.form.get("username"), passwd=request.form.get("passwd"),
-                        firstname=request.form.get("firstName"), lastname=request.form.get("lastName"),
-                        email_address=request.form.get("email_address"), gender=request.form.get("gender"),
-                        age=request.form.get("age"))
-            db.session.add(user)
-            db.session.commit()
-            session.pop('user', None)
-            session['user'] = str(request.form['username'])
-        except Exception as e:
-            # print("failed to add user")
-            # print(e)
-            return ("Failed to add user. Please try again.")
-        return redirect(url_for('profile'))
-    users = User.query.all()
-    return render_template("signup.html", users=users)
-'''
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["passwd"]
+        dbcommit = User(username = username, passwd = password)
+        db.session.add(dbcommit)
+        db.session.commit
+        return redirect(url_for("login"))
+
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
-    error = None
     if request.method == "POST":
         POST_USERNAME = str(request.form['username'])
         POST_PASSWORD = str(request.form['password'])
-        # dbcommitsignup = User(POST_USERNAME = username, POST_PASSWORD = passwd)
-        # db.session.add(dbcommitsignup)
-        # db.session.commit()
-        result1 = User.query.filter(User.username == POST_USERNAME).first()
-        result2 = User.query.filter(User.passwd == POST_PASSWORD).first()
-        if result1 and result2:
-            session.pop('user', None)
-            session['user'] = POST_USERNAME
-            return redirect(url_for('profile'))
-        else:
-            error = "Invalid Credentials. Please try again."
-    return render_template("login.html", error=error)
+        users = User.query.all()
+        session.pop("_id", None)
+        try:
+            user = [user for user in users if user.username == POST_USERNAME][0]
+            if user and user.passwd == POST_PASSWORD:
+                return render_template("landing.html")
+            else:
+                return redirect(url_for("login"))
+                flash("incorrect username password")
+        except:
+            return redirect(url_for("login"))
+            flash("incorrect username password")
+    else:
+        if "user" in session:
+            return redirect(url_for("about"))
+        return render_template("login.html")
+    # result1 = User.query.filter(User.username == POST_USERNAME).first()
+        # result2 = User.query.filter(User.passwd == POST_PASSWORD).first()
 
 
 @app.route('/home')
@@ -117,13 +106,13 @@ def home_route():
 def about():
     return render_template("about.html")
 
+@app.route('/profile')
+def profile():
+    return render_template("profile.html")
+
 @app.route('/feedback')
 def feedback():
     return render_template("feedback.html")
-
-@app.route('/signup')
-def signup():
-    return render_template("signup.html")
 
 @app.route('/process')
 def process():
@@ -164,4 +153,6 @@ def submit():
 
 
 if __name__ == "__main__":
+    db.create_all()
+    db.session.commit()
     app.run(debug=True, port="5003")
